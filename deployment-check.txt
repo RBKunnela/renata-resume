@@ -1,0 +1,12 @@
+DEPLOYMENT CHECK - 2025-07-31
+=============================
+
+Changes made:
+- Removed "AI-Enhanced Testing Specialist" section
+- Changed "API Testing Specialist" to "Testing Specialist" 
+- Updated TietoEvry dates to "Oct 2023 - Jan 2025"
+
+If you can see this file at /deployment-check.txt on the live site, 
+then Railway deployment is working correctly.
+
+Last updated: 2025-07-31 at 19:30 UTC
