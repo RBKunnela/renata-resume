@@ -17,8 +17,6 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "snh9b2c47t");
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -602,50 +600,200 @@
             font-size: 14px;
         }
         
-        /* Print Styles */
+        /* Print Styles - High Fidelity */
         @media print {
-            body {
-                background: white;
-                padding: 0;
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                transition: none !important;
+                animation: none !important;
             }
-            
-            .action-buttons {
-                display: none;
+
+            /* Hide elements that shouldn't be printed */
+            .action-buttons, .footer-copyright, .notification, .error-banner, .loading-indicator {
+                display: none !important;
             }
-            
+
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+
+            html, body {
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                height: auto !important;
+                min-height: initial !important; /* Force reset of min-height */
+                overflow: visible !important;
+                font-size: 10pt;
+                line-height: 1.4;
+                color: #2c3e50 !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+
             .resume-container {
-                box-shadow: none;
-                border-radius: 0;
-                max-width: none;
-                margin: 0;
-                display: block;
+                /* Force the container back into the document flow */
+                position: static !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                display: grid !important;
+                grid-template-columns: 300px 1fr !important; /* Maintain layout */
+                overflow: visible !important;
+                background: white !important;
+                page-break-inside: avoid !important;
             }
-            
+
             .sidebar {
-                background: #f8f9fa !important;
-                color: #2c3e50 !important;
-                border-bottom: 2px solid #ecf0f1;
-                margin-bottom: 20px;
+                grid-column: 1 / 2;
+                background: #34495e !important;
+                background-color: #34495e !important;
+                color: white !important;
+                padding: 20px !important;
+                page-break-inside: avoid !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+
+            .sidebar::before {
+                background: #3498db !important;
+                background-color: #3498db !important;
+            }
+
+            .sidebar *, .sidebar .icon {
+                color: white !important;
+                text-shadow: none !important;
             }
             
-            .sidebar * {
-                color: #2c3e50 !important;
+            .profile-img {
+                width: 120px !important;
+                height: 120px !important;
+                border-width: 3px !important;
             }
-            
-            .ai-highlight, .course-card, .tech-tag {
-                background: #f8f9fa !important;
-                color: #2c3e50 !important;
-                border: 1px solid #bdc3c7;
+
+            .name {
+                font-size: 20pt !important;
             }
-            
-            .experience-item, .education-item, .cert-card {
-                break-inside: avoid;
-                page-break-inside: avoid;
+
+            .title {
+                font-size: 12pt !important;
             }
-            
+
+            .sidebar-title {
+                font-size: 12pt !important;
+                border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+            }
+
+            .sidebar-content, .contact-info {
+                font-size: 9pt !important;
+            }
+
+            .skill-item {
+                padding: 8px 10px !important;
+                border-left-width: 2px !important;
+                background-color: rgba(255,255,255,0.1) !important;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            .main-content {
+                grid-column: 2 / 3;
+                padding: 20px !important;
+                background: white !important;
+            }
+
+            .ai-highlight {
+                padding: 20px !important;
+                box-shadow: none !important;
+                border: 1px solid #eee;
+                background: #3498db !important;
+                background-color: #3498db !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+
+            .ai-highlight h2 {
+                font-size: 16pt !important;
+                color: white !important;
+            }
+
+            .ai-highlight p {
+                color: white !important;
+            }
+
             .section {
-                break-inside: avoid;
-                page-break-inside: avoid;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .section-title {
+                font-size: 14pt !important;
+                padding-bottom: 8px !important;
+                color: #2c3e50 !important;
+                border-bottom: 3px solid #3498db !important;
+            }
+
+            .experience-item, .education-item, .cert-card {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+                box-shadow: none !important;
+                border: 1px solid #eee !important;
+                background-color: #f8f9fa !important;
+                overflow: visible !important;
+                padding: 15px !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+
+            .job-title {
+                font-size: 12pt !important;
+                color: #2c3e50 !important;
+            }
+
+            .company {
+                font-size: 11pt !important;
+                color: #3498db !important;
+            }
+
+            .duration {
+                font-size: 9pt !important;
+                padding: 3px 10px !important;
+                background-color: #ecf0f1 !important;
+                color: #7f8c8d !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+
+            .tech-tag {
+                font-size: 8pt !important;
+                padding: 4px 10px !important;
+                box-shadow: none !important;
+                background: #3498db !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+
+            /* Use a simpler approach for the gradient text */
+            .highlight-ai {
+                color: #3498db !important;
+                font-weight: bold !important;
+                -webkit-text-fill-color: #3498db !important;
+            }
+
+            /* Hide decorative elements that don't print well */
+            .ai-badge::before, .ai-highlight::before, .action-btn::before, .profile-img:hover, .skill-item:hover, .experience-item:hover, .education-item:hover, .cert-card:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            
+            /* Make sure the ai badge has proper colors */
+            .ai-badge {
+                background: #3498db !important;
+                background-color: #3498db !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact !important;
             }
         }
         
@@ -778,35 +926,6 @@
                 box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             }
         }
-            /* Loading indicator for PDF generation */
-        .loading-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #3498db;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 15px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
         
         /* Visual feedback for button interactions */
         .action-btn:active {
@@ -842,25 +961,40 @@
             transform: translateY(0);
         }
         
-        .notification i {
-            font-size: 18px;
-        }
-        
-        /* Enhancement for print mode */
-        body.printing {
-            position: relative;
-        }
-        
-        body.printing::before {
-            content: '';
+        /* Loading indicator for PDF generation */
+        .loading-indicator {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(52, 152, 219, 0.1);
-            z-index: 9999;
-            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 2000;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .loading-indicator .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .notification i {
+            font-size: 18px;
         }
         
         /* Page transitions and animations */
@@ -954,7 +1088,7 @@
                     <img src="renata.jpg" alt="Renata Baldissara-Kunnela">
                 </div>
                 <h2 class="name">Renata Baldissara-Kunnela</h2>
-                <div class="title">AI-Powered Testing Specialist</div>
+                <div class="title">AI-Powered Testing Specialist & AI Developer</div>
                 <div class="ai-badge">🤖 AI Expert</div>
             </div>
             
@@ -1128,7 +1262,7 @@
                             <div class="job-title">AI Agent Developer & Applications Builder</div>
                             <div class="company">FriendlyAI</div>
                         </div>
-                        <div class="duration">2024 - Present</div>
+                        <div class="duration">Jan 2025 - Present</div>
                     </div>
                     <div class="job-description">
                         <p>Leading the development of sophisticated <strong class="highlight-ai">AI agents and intelligent applications</strong>, focusing on cutting-edge AI technologies and automated solutions for enterprise clients.</p>
@@ -1151,36 +1285,18 @@
                 <div class="experience-item">
                     <div class="job-header">
                         <div>
-                            <div class="job-title">AI-Enhanced Testing Specialist</div>
+                            <div class="job-title">Testing Specialist</div>
                             <div class="company">TietoEvry</div>
                         </div>
-                        <div class="duration">2023 - 2024</div>
+                        <div class="duration">2023 - 2025</div>
                     </div>
-                    <div class="job-description">
-                        <p>Led the integration of AI and advanced testing methodologies for enterprise clients, with a focus on <strong class="highlight-ai">AI-powered test automation</strong> and prompt engineering solutions.</p>
-                        <ul>
-                            <li>Developed AI-driven testing strategies using prompt engineering to automate test case generation</li>
-                            <li>Implemented intelligent test data management using machine learning principles</li>
-                            <li>Created custom GPT solutions for automated documentation and test reporting</li>
-                            <li>Optimized testing workflows through N8N low-code automation integrated with AI tools</li>
-                        </ul>
-                        <div class="tech-stack">
-                            <span class="tech-tag">AI Prompt Engineering</span>
-                            <span class="tech-tag">Custom GPT Development</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Robot Framework</span>
-                            <span class="tech-tag">N8N Automation</span>
-                        </div>
-                    </div>
-                </div>
-                
                 <div class="experience-item">
                     <div class="job-header">
                         <div>
                             <div class="job-title">API Testing Specialist</div>
                             <div class="company">Fennia Insurance - Business & IT Transformation Program</div>
                         </div>
-                        <div class="duration">Jan 2023 - Present</div>
+                        <div class="duration">Oct 2023 - Jan 2025</div>
                     </div>
                     <div class="job-description">
                         <p>Responsible for comprehensive API testing in development environments, implementing <strong class="highlight-ai">AI-enhanced testing processes</strong> for insurance platform transformation.</p>
@@ -1330,15 +1446,14 @@
         </div>
     </div>
 
+    <!-- Add PDF generation library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    
     <script>
         // Initialize when the document is fully loaded
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Resume loaded successfully');
-            // Check if all required libraries are loaded
-            if (typeof html2canvas === 'undefined' || typeof window.jspdf === 'undefined') {
-                console.error('Required libraries not loaded');
-                addErrorBanner('Some features may not work correctly. Please check your internet connection.');
-            }
             
             // Add event listeners for all buttons
             document.querySelectorAll('.action-btn').forEach(btn => {
@@ -1394,189 +1509,117 @@
         
         function printResume() {
             try {
-                // Add a small visual feedback when print is clicked
-                document.body.classList.add('printing');
+                // Apply any necessary print-specific styles
+                const style = document.createElement('style');
+                style.id = 'print-style-helper';
+                style.innerHTML = `
+                    @media print {
+                        /* Force colors to print */
+                        * {
+                            -webkit-print-color-adjust: exact !important;
+                            color-adjust: exact !important;
+                            print-color-adjust: exact !important;
+                        }
+                        /* Hide non-printable elements */
+                        .action-buttons, .footer-copyright, .notification, .error-banner {
+                            display: none !important;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                // Small delay to ensure styles are applied before opening print dialog
                 setTimeout(() => {
+                    // Trigger the print dialog
                     window.print();
-                    document.body.classList.remove('printing');
-                    showNotification('<i class="fas fa-check-circle"></i> Print dialog opened');
+                    
+                    // Clean up temporary style after printing is initiated
+                    setTimeout(() => {
+                        const tempStyle = document.getElementById('print-style-helper');
+                        if (tempStyle) {
+                            document.head.removeChild(tempStyle);
+                        }
+                    }, 1000);
                 }, 300);
             } catch (error) {
                 console.error('Print error:', error);
-                showNotification('<i class="fas fa-exclamation-triangle"></i> Print failed. Try again.', 'error');
+                showNotification('<i class="fas fa-exclamation-triangle"></i> Print failed. Please try again.', 'error');
             }
         }
         
         function downloadPDF() {
             try {
-                if (typeof window.jspdf === 'undefined' || typeof html2canvas === 'undefined') {
-                    showNotification('<i class="fas fa-exclamation-triangle"></i> PDF generation libraries not loaded. Check internet connection.', 'error');
-                    return;
-                }
+                // Show notification that guides the user to use print dialog instead
+                showNotification('<i class="fas fa-info-circle"></i> Opening print dialog. Select "Save as PDF" to download your resume.', 'info');
                 
-                const { jsPDF } = window.jspdf;
-                const resumeElement = document.getElementById('resume-content');
-                
-                // Show loading indicator
-                const loadingIndicator = document.createElement('div');
-                loadingIndicator.className = 'loading-indicator';
-                loadingIndicator.setAttribute('role', 'status');
-                loadingIndicator.setAttribute('aria-live', 'polite');
-                loadingIndicator.innerHTML = '<div class="spinner"></div><p>Generating PDF...</p>';
-                document.body.appendChild(loadingIndicator);
-                
-                // Hide action buttons temporarily
-                const actionButtons = document.querySelector('.action-buttons');
-                actionButtons.style.display = 'none';
-                
+                // Wait a moment for the notification to be visible
                 setTimeout(() => {
-                    html2canvas(resumeElement, {
-                        scale: 2,
-                        useCORS: true,
-                        allowTaint: true,
-                        backgroundColor: '#ffffff',
-                        logging: false, // Disable logging for better performance
-                        onclone: (doc) => {
-                            // Ensure images are properly loaded in the cloned document
-                            const images = doc.getElementsByTagName('img');
-                            for (let i = 0; i < images.length; i++) {
-                                images[i].crossOrigin = 'anonymous';
-                            }
-                        }
-                    }).then(function(canvas) {
-                        try {
-                            const imgData = canvas.toDataURL('image/png');
-                            const pdf = new jsPDF('p', 'mm', 'a4');
-                            
-                            const imgWidth = 210;
-                            const pageHeight = 295;
-                            const imgHeight = (canvas.height * imgWidth) / canvas.width;
-                            let heightLeft = imgHeight;
-                            
-                            let position = 0;
-                            
-                            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                            heightLeft -= pageHeight;
-                            
-                            while (heightLeft >= 0) {
-                                position = heightLeft - imgHeight;
-                                pdf.addPage();
-                                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                                heightLeft -= pageHeight;
-                            }
-                            
-                            // Add metadata
-                            pdf.setProperties({
-                                title: 'Renata Baldissara-Kunnela - AI & Testing Specialist Resume',
-                                subject: 'Professional Resume',
-                                author: 'Renata Baldissara-Kunnela',
-                                keywords: 'resume, CV, AI, testing, specialist',
-                                creator: 'Professional Resume Generator'
-                            });
-                            
-                            pdf.save('Renata_Baldissara-Kunnela_AI_Resume.pdf');
-                            
-                            // Show action buttons again and remove loading indicator
-                            actionButtons.style.display = 'flex';
-                            document.body.removeChild(loadingIndicator);
-                            showNotification('<i class="fas fa-check-circle"></i> PDF downloaded successfully');
-                        } catch (error) {
-                            console.error('PDF generation error:', error);
-                            actionButtons.style.display = 'flex';
-                            document.body.removeChild(loadingIndicator);
-                            showNotification('<i class="fas fa-exclamation-triangle"></i> Failed to generate PDF', 'error');
-                        }
-                    }).catch(error => {
-                        console.error('Canvas error:', error);
-                        actionButtons.style.display = 'flex';
-                        document.body.removeChild(loadingIndicator);
-                        showNotification('<i class="fas fa-exclamation-triangle"></i> Failed to render resume for PDF', 'error');
-                    });
-                }, 500); // Small delay to ensure UI updates before heavy processing
+                    // Use the print function which is already working well
+                    printResume();
+                }, 1500);
             } catch (error) {
-                console.error('Overall PDF error:', error);
-                showNotification('<i class="fas fa-exclamation-triangle"></i> An unexpected error occurred', 'error');
+                console.error('PDF error:', error);
+                showNotification('<i class="fas fa-exclamation-triangle"></i> Failed to generate PDF', 'error');
             }
         }
-        
+
         function shareResume() {
             try {
-                // First check if the page is served over HTTPS (required for Web Share API)
-                const isHttps = window.location.protocol === 'https:';
-                
-                // Check if Web Share API is available and we're on HTTPS
-                if (navigator.share && isHttps) {
-                    navigator.share({
-                        title: 'Renata Baldissara-Kunnela - AI & Testing Specialist Resume',
-                        text: 'Check out Renata Baldissara-Kunnela\'s professional resume as an AI & Testing Specialist.',
-                        url: window.location.href
-                    })
+                const shareData = {
+                    title: 'Renata Baldissara-Kunnela - AI & Testing Specialist Resume',
+                    text: 'Check out Renata Baldissara-Kunnela\'s professional resume as an AI & Testing Specialist.',
+                    url: window.location.href
+                };
+
+                // Use Web Share API if available
+                if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+                    navigator.share(shareData)
                     .then(() => showNotification('<i class="fas fa-check-circle"></i> Resume shared successfully'))
                     .catch(error => {
                         // User cancelled share operation or other error
                         if (error.name !== 'AbortError') { 
                             console.error('Error sharing:', error);
-                            showNotification('<i class="fas fa-exclamation-triangle"></i> Sharing failed', 'error');
+                            // Don't show an error if the user just cancelled.
                         }
                     });
                 } else {
-                    // Fallback for browsers that don't support Web Share API
-                    // Try the newer clipboard API first
-                    if (navigator.clipboard && navigator.clipboard.writeText) {
-                        navigator.clipboard.writeText(window.location.href)
-                            .then(() => {
-                                showNotification('<i class="fas fa-check-circle"></i> Resume URL copied to clipboard');
-                            })
-                            .catch(err => {
-                                console.error('Clipboard API error:', err);
-                                fallbackCopyToClipboard();
-                            });
-                    } else {
-                        fallbackCopyToClipboard();
-                    }
+                    // Fallback to clipboard
+                    fallbackCopyToClipboard();
                 }
             } catch (error) {
                 console.error('Share feature error:', error);
-                showNotification('<i class="fas fa-exclamation-triangle"></i> Sharing functionality error', 'error');
+                showNotification('<i class="fas fa-exclamation-triangle"></i> Sharing functionality not available.', 'error');
             }
         }
         
         // Fallback method for copying to clipboard
         function fallbackCopyToClipboard() {
-            try {
-                // Create a temporary input element
-                const input = document.createElement('input');
-                input.value = window.location.href;
-                input.setAttribute('readonly', '');
-                input.style.position = 'absolute';
-                input.style.left = '-9999px';
-                document.body.appendChild(input);
-                
-                // Select and copy
-                const isIOS = navigator.userAgent.match(/ipad|iphone/i);
-                if (isIOS) {
-                    // Create a range and selection for iOS
-                    const range = document.createRange();
-                    range.selectNodeContents(input);
-                    const selection = window.getSelection();
-                    selection.removeAllRanges();
-                    selection.addRange(range);
-                    input.setSelectionRange(0, input.value.length);
-                } else {
+            // Use the modern clipboard API if available (requires HTTPS)
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(window.location.href)
+                    .then(() => {
+                        showNotification('<i class="fas fa-check-circle"></i> Resume URL copied to clipboard');
+                    })
+                    .catch(err => {
+                        console.error('Clipboard API error:', err);
+                        showNotification('<i class="fas fa-exclamation-triangle"></i> Could not copy URL.', 'error');
+                    });
+            } else {
+                // Fallback for older browsers or insecure contexts
+                try {
+                    const input = document.createElement('textarea');
+                    input.value = window.location.href;
+                    input.style.position = 'absolute';
+                    input.style.left = '-9999px';
+                    document.body.appendChild(input);
                     input.select();
-                }
-                
-                const success = document.execCommand('copy');
-                document.body.removeChild(input);
-                
-                if (success) {
+                    document.execCommand('copy');
+                    document.body.removeChild(input);
                     showNotification('<i class="fas fa-check-circle"></i> Resume URL copied to clipboard');
-                } else {
-                    showNotification('<i class="fas fa-exclamation-triangle"></i> Failed to copy URL', 'error');
+                } catch (err) {
+                    console.error('Fallback clipboard error:', err);
+                    showNotification('<i class="fas fa-exclamation-triangle"></i> Could not copy URL.', 'error');
                 }
-            } catch (err) {
-                console.error('Fallback clipboard error:', err);
-                showNotification('<i class="fas fa-exclamation-triangle"></i> Could not copy URL', 'error');
             }
         }
     </script>
