@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Renata Baldissara-Kunnela - AI & Testing Specialist Resume">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Renata Baldissara-Kunnela - AI & Testing Specialist</title>
+    <!-- Microsoft Clarity Analytics Tracking Code -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "snh9b2c47t");
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            transition: background 0.5s ease;
+            scroll-behavior: smooth;
+        }
+        
+        .action-buttons {
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .action-btn:hover::before {
+            left: 100%;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+        }
+        
+        .action-btn.email {
+            background: linear-gradient(135deg, #27ae60, #229954);
+        }
+        
+        .action-btn.print {
+            background: linear-gradient(135deg, #8e44ad, #7d3c98);
+        }
+        
+        .action-btn.share {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+        
+        .resume-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            min-height: 800px;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .sidebar {
+            background: linear-gradient(180deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            padding: 40px 30px;
+            position: relative;
+        }
+        
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #3498db, #2980b9, #1abc9c, #16a085);
+        }
+        
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.2);
+            margin: 0 auto 20px;
+            background: #ecf0f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+        }
+        
+        .profile-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+            pointer-events: none;
+        }
+        
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+        
+        .profile-img:hover img {
+            transform: scale(1.1) rotate(2deg);
+        }
+        
+        .name {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ecf0f1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 0.5px;
+        }
+        
+        .title {
+            font-size: 16px;
+            color: #bdc3c7;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+        
+        .ai-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+            transform: rotate(30deg);
+            animation: badgeGlow 5s linear infinite;
+        }
+        
+        @keyframes badgeGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+        
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ecf0f1;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sidebar-content {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        .sidebar-content ul {
+            list-style: none;
+        }
+        
+        .sidebar-content li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .sidebar-content li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .contact-info {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        .contact-info div {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border-left: 3px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateX(3px);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .skill-name {
+            font-weight: 600;
+        }
+        
+        .skill-level {
+            background: #3498db;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .main-content {
+            padding: 40px;
+            background: white;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .ai-highlight {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-highlight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(0deg);
+        }
+        
+        .ai-highlight h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .ai-highlight p {
+            font-size: 16px;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #1abc9c, #16a085);
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .experience-item::before, .education-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #3498db, #2980b9);
+            transition: all 0.3s ease;
+        }
+        
+        .experience-item:hover, .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .job-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .company {
+            font-size: 16px;
+            color: #3498db;
+            font-weight: 600;
+        }
+        
+        .duration {
+            font-size: 14px;
+            color: #7f8c8d;
+            background: #ecf0f1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        
+        .job-description {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .job-description ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        
+        .job-description li {
+            margin-bottom: 5px;
+        }
+        
+        .tech-stack {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tech-tag {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .ai-courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .course-card {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .languages {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .language-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-top: 3px solid #3498db;
+        }
+        
+        .language-name {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .language-level {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .highlight-ai {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        
+        .cert-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        
+        .cert-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #27ae60, #229954);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .cert-card:hover .cert-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+        
+        .cert-info h4 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .cert-date {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .action-buttons {
+                display: none;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: none;
+                margin: 0;
+                display: block;
+            }
+            
+            .sidebar {
+                background: #f8f9fa !important;
+                color: #2c3e50 !important;
+                border-bottom: 2px solid #ecf0f1;
+                margin-bottom: 20px;
+            }
+            
+            .sidebar * {
+                color: #2c3e50 !important;
+            }
+            
+            .ai-highlight, .course-card, .tech-tag {
+                background: #f8f9fa !important;
+                color: #2c3e50 !important;
+                border: 1px solid #bdc3c7;
+            }
+            
+            .experience-item, .education-item, .cert-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            
+            .section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+                margin: 10px;
+            }
+            
+            .sidebar {
+                padding: 30px 20px;
+            }
+            
+            .main-content {
+                padding: 30px 20px;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .duration {
+                margin-top: 10px;
+            }
+            
+            .languages {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .action-btn {
+                flex: 1 1 calc(50% - 10px);
+                min-width: 130px;
+                text-align: center;
+                justify-content: center;
+                margin: 0;
+            }
+            
+            .certification-grid,
+            .ai-courses {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-stack {
+                justify-content: center;
+            }
+            
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .notification {
+                width: calc(100% - 40px);
+                right: 20px;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .footer-copyright {
+                margin-bottom: 60px; /* Extra space for bottom fixed elements on mobile */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .resume-container {
+                margin: 0;
+                border-radius: 8px;
+            }
+            
+            .action-btn {
+                flex: 1 1 100%;
+                margin-bottom: 10px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+            
+            .experience-item, .education-item {
+                padding: 15px;
+            }
+            
+            .ai-highlight h2 {
+                font-size: 22px;
+            }
+            
+            .ai-highlight p {
+                font-size: 14px;
+            }
+            
+            /* Fix for very small screens */
+            .skill-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .skill-level {
+                margin-top: 5px;
+                align-self: flex-start;
+            }
+            
+            /* Make tap targets bigger on mobile */
+            .action-btn {
+                padding: 14px 20px;
+                font-size: 16px;
+            }
+        }
+        
+        /* Specific orientation styles */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .action-buttons {
+                position: sticky;
+                top: 0;
+                background: rgba(255, 255, 255, 0.95);
+                z-index: 100;
+                padding: 10px;
+                margin-top: 0;
+                border-radius: 0 0 10px 10px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+        }
+            /* Loading indicator for PDF generation */
+        .loading-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Visual feedback for button interactions */
+        .action-btn:active {
+            transform: scale(0.98);
+        }
+        
+        /* Notification styles */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-weight: 500;
+        }
+        
+        .notification.error {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .notification i {
+            font-size: 18px;
+        }
+        
+        /* Enhancement for print mode */
+        body.printing {
+            position: relative;
+        }
+        
+        body.printing::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(52, 152, 219, 0.1);
+            z-index: 9999;
+            pointer-events: none;
+        }
+        
+        /* Page transitions and animations */
+        .page-enter {
+            animation: fadeInUp 0.5s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Accessibility improvements */
+        :focus {
+            outline: 2px solid #3498db;
+            outline-offset: 2px;
+        }
+        
+        .action-btn:focus {
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
+        }
+        
+        /* Footer styles */
+        .footer-copyright {
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+            color: #7f8c8d;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .footer-copyright p {
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-copyright p:hover {
+            opacity: 1;
+        }
+            /* Error banner styles */
+        .error-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .error-banner .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0 5px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body class="page-enter">
+    <div class="action-buttons">
+        <button class="action-btn print" onclick="printResume()">
+            <i class="fas fa-print"></i> Print Resume
+        </button>
+        <button class="action-btn" onclick="downloadPDF()">
+            <i class="fas fa-file-pdf"></i> Download PDF
+        </button>
+        <a href="mailto:renata.baldissara-kunnela@friendlyai.fi?subject=Contact%20from%20Resume&body=Hello%20Renata,%0D%0A%0D%0AI%20found%20your%20resume%20and%20would%20like%20to%20discuss..." 
+           class="action-btn email">
+            <i class="fas fa-envelope"></i> Email Me
+        </a>
+        <button class="action-btn share" onclick="shareResume()">
+            <i class="fas fa-share-alt"></i> Share
+        </button>
+    </div>
+
+    <div class="resume-container" id="resume-content">
+        <div class="sidebar">
+            <div class="profile-section">
+                <div class="profile-img">
+                    <img src="renata.jpg" alt="Renata Baldissara-Kunnela">
+                </div>
+                <h2 class="name">Renata Baldissara-Kunnela</h2>
+                <div class="title">AI-Powered Testing Specialist</div>
+                <div class="ai-badge">🤖 AI Expert</div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <span class="icon">📧</span>
+                    Contact
+                </h3>
+                <div class="sidebar-content">
+                    <div class="contact-info">
+                        <div>📧 renata.baldissara-kunnela@friendlyai.fi</div>
+                        <div>📱 +358401829008</div>
+                        <div>📍 Viitasaari, Keski-Suomi, Finland</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <span class="icon">🧠</span>
+                    AI & Core Skills
+                </h3>
+                <div class="sidebar-content">
+                    <div class="skill-item">
+                        <span class="skill-name">AI Prompt Engineering</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">API Testing</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Mobile Testing</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Test Automation</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Machine Learning</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <span class="icon">🛠️</span>
+                    Technologies
+                </h3>
+                <div class="sidebar-content">
+                    <ul>
+                        <li>Robot Framework</li>
+                        <li>Postman & REST APIs</li>
+                        <li>Jira & TestRail</li>
+                        <li>MuleSoft</li>
+                        <li>N8N Automation</li>
+                        <li>BrowserStack</li>
+                        <li>Figma & Confluence</li>
+                        <li>ChatGPT & AI Tools</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <span class="icon">🌍</span>
+                    Languages
+                </h3>
+                <div class="sidebar-content">
+                    <div class="skill-item">
+                        <span class="skill-name">Portuguese</span>
+                        <span class="skill-level">Native</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">English</span>
+                        <span class="skill-level">Fluent</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Finnish</span>
+                        <span class="skill-level">Professional</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Spanish</span>
+                        <span class="skill-level">Fluent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <div class="ai-highlight">
+                    <h2>🚀 AI-Powered Quality Assurance Professional</h2>
+                    <p>Transforming software testing through artificial intelligence, prompt engineering, and advanced automation. Over a decade of expertise in delivering quality solutions for complex systems.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🤖 AI & Prompt Engineering Expertise</h2>
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; border-left: 4px solid #3498db;">
+                    <p style="font-size: 16px; line-height: 1.7; color: #2c3e50; margin-bottom: 15px;">
+                        <strong class="highlight-ai">AI Prompt Engineering Specialist</strong> with extensive training in advanced prompt techniques, multimodal AI interactions, and custom GPT development. Expertise in leveraging AI tools to enhance testing processes, automate documentation, and improve quality assurance efficiency.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">ChatGPT Advanced Prompting</span>
+                        <span class="tech-tag">Google Gemini</span>
+                        <span class="tech-tag">Custom GPT Development</span>
+                        <span class="tech-tag">Zapier AI Actions</span>
+                        <span class="tech-tag">Natural Language Processing</span>
+                        <span class="tech-tag">AI Model Development</span>
+                        <span class="tech-tag">Data Preprocessing</span>
+                        <span class="tech-tag">Machine Learning Fundamentals</span>
+                    </div>
+                </div>
+                
+                <div class="ai-courses">
+                    <div class="course-card">Advanced Prompt Engineering Techniques</div>
+                    <div class="course-card">Multimodal Prompting with Google Gemini</div>
+                    <div class="course-card">Custom GPTs with Zapier & N8N Actions</div>
+                    <div class="course-card">Prompt Injection Mitigation</div>
+                    <div class="course-card">AI Research & Writing Tools</div>
+                    <div class="course-card">Excel & ChatGPT Data Analysis</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🎤 Public Speaker & Educator</h2>
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; border-left: 4px solid #27ae60;">
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="color: #2c3e50; margin-bottom: 10px; font-size: 18px;">🚀 Upcoming Speaking Engagement</h3>
+                        <div style="background: linear-gradient(45deg, #3498db, #2980b9); color: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <h4 style="margin-bottom: 8px;">Testaus & 360 Event - "UX and UI with AI"</h4>
+                            <p style="margin-bottom: 5px;"><strong>📅 October 7, 2025</strong> | <strong>🏛️ Tieturi</strong></p>
+                            <p style="font-size: 14px; opacity: 0.9;">Invited speaker presenting advanced techniques for integrating AI in UX/UI testing and design processes</p>
+                            <a href="https://www.tieturi.fi/koulutus/testaus-360/" target="_blank" style="color: #f1c40f; text-decoration: underline; font-size: 14px;">Event Details →</a>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="color: #2c3e50; margin-bottom: 10px; font-size: 18px;">✅ Recent Presentations</h3>
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid #3498db;">
+                            <h4 style="color: #2c3e50; margin-bottom: 8px;">Testaus ja AI 2024</h4>
+                            <p style="color: #7f8c8d; font-size: 14px; margin-bottom: 5px;"><strong>Organizer:</strong> Profesio</p>
+                            <p style="color: #555; line-height: 1.6;">Delivered keynote presentation on "AI's Role in Improving Quality Assurance", sharing insights on prompt engineering applications in software testing and future trends in AI-driven QA processes.</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 style="color: #2c3e50; margin-bottom: 10px; font-size: 18px;">🎓 Educational Background</h3>
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid #27ae60;">
+                            <h4 style="color: #2c3e50; margin-bottom: 8px;">Guest Lecturer - JAMK University</h4>
+                            <p style="color: #7f8c8d; font-size: 14px; margin-bottom: 5px;"><strong>Duration:</strong> 2007 - 2016</p>
+                            <p style="color: #555; line-height: 1.6;">Specialized lectures on software testing methodologies, emerging AI technologies in quality assurance, and modern testing frameworks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">💼 Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">AI Agent Developer & Applications Builder</div>
+                            <div class="company">FriendlyAI</div>
+                        </div>
+                        <div class="duration">2024 - Present</div>
+                    </div>
+                    <div class="job-description">
+                        <p>Leading the development of sophisticated <strong class="highlight-ai">AI agents and intelligent applications</strong>, focusing on cutting-edge AI technologies and automated solutions for enterprise clients.</p>
+                        <ul>
+                            <li>Design and build custom AI agents using advanced prompt engineering and machine learning</li>
+                            <li>Develop intelligent applications integrating multiple AI models and APIs</li>
+                            <li>Implement automated workflows and decision-making systems</li>
+                            <li>Create scalable AI solutions for business process optimization</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">AI Agent Development</span>
+                            <span class="tech-tag">Custom AI Applications</span>
+                            <span class="tech-tag">Advanced Prompt Engineering</span>
+                            <span class="tech-tag">API Integration</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">AI-Enhanced Testing Specialist</div>
+                            <div class="company">TietoEvry</div>
+                        </div>
+                        <div class="duration">2023 - 2024</div>
+                    </div>
+                    <div class="job-description">
+                        <p>Led the integration of AI and advanced testing methodologies for enterprise clients, with a focus on <strong class="highlight-ai">AI-powered test automation</strong> and prompt engineering solutions.</p>
+                        <ul>
+                            <li>Developed AI-driven testing strategies using prompt engineering to automate test case generation</li>
+                            <li>Implemented intelligent test data management using machine learning principles</li>
+                            <li>Created custom GPT solutions for automated documentation and test reporting</li>
+                            <li>Optimized testing workflows through N8N low-code automation integrated with AI tools</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">AI Prompt Engineering</span>
+                            <span class="tech-tag">Custom GPT Development</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Robot Framework</span>
+                            <span class="tech-tag">N8N Automation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">API Testing Specialist</div>
+                            <div class="company">Fennia Insurance - Business & IT Transformation Program</div>
+                        </div>
+                        <div class="duration">Jan 2023 - Present</div>
+                    </div>
+                    <div class="job-description">
+                        <p>Responsible for comprehensive API testing in development environments, implementing <strong class="highlight-ai">AI-enhanced testing processes</strong> for insurance platform transformation.</p>
+                        <ul>
+                            <li>Designed and executed comprehensive API test suites using Postman and automation</li>
+                            <li>Integrated AI-powered test case generation to improve coverage and efficiency</li>
+                            <li>Managed test documentation in TestRail with AI-assisted reporting</li>
+                            <li>Collaborated with development teams using MuleSoft and RAML specifications</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Postman</span>
+                            <span class="tech-tag">TestRail</span>
+                            <span class="tech-tag">MuleSoft</span>
+                            <span class="tech-tag">Jira</span>
+                            <span class="tech-tag">AI Test Generation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Senior Test Specialist / Test Manager</div>
+                            <div class="company">Oy Samlink Ab - Mobile Banking Applications</div>
+                        </div>
+                        <div class="duration">2016 - 2023</div>
+                    </div>
+                    <div class="job-description">
+                        <p>Led mobile testing initiatives for major Finnish banks (Säästöpankki, OmaSäästöpankki, POP Bank, Handelsbanken), pioneering the integration of <strong class="highlight-ai">AI-assisted testing methodologies</strong>.</p>
+                        <ul>
+                            <li>Managed comprehensive mobile app testing across iOS and Android platforms</li>
+                            <li>Implemented AI-powered accessibility testing protocols</li>
+                            <li>Developed automated testing frameworks using Robot Framework and Python</li>
+                            <li>Introduced prompt engineering techniques for test documentation automation</li>
+                            <li>Led cross-functional teams in agile testing environments</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Mobile Testing</span>
+                            <span class="tech-tag">Robot Framework</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Accessibility Testing</span>
+                            <span class="tech-tag">AI Integration</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Guest Lecturer - AI & Testing</div>
+                            <div class="company">JAMK University of Applied Sciences</div>
+                        </div>
+                        <div class="duration">2007 - 2016</div>
+                    </div>
+                    <div class="job-description">
+                        <p>Delivered specialized lectures on software testing methodologies and emerging AI technologies in quality assurance.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Education</span>
+                            <span class="tech-tag">AI in Testing</span>
+                            <span class="tech-tag">Knowledge Transfer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🎓 Education & Certifications</h2>
+                
+                <div class="certification-grid">
+                    <div class="cert-card">
+                        <div class="cert-icon">🤖</div>
+                        <div class="cert-info">
+                            <h4>AI Prompt Engineering Expert</h4>
+                            <div class="cert-date">Multiple Advanced Certifications - 2024</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-card">
+                        <div class="cert-icon">🧪</div>
+                        <div class="cert-info">
+                            <h4>ISTQB® Foundation Level - Agile Tester</h4>
+                            <div class="cert-date">April 2015</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-card">
+                        <div class="cert-icon">✅</div>
+                        <div class="cert-info">
+                            <h4>ISTQB® Foundation Level - Certified Tester</h4>
+                            <div class="cert-date">January 2014</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <div class="education-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Bachelor's in Computer Science</div>
+                                <div class="company">JAMK University of Applied Sciences</div>
+                            </div>
+                            <div class="duration">2011 - 2016</div>
+                        </div>
+                        <div class="job-description">
+                            Information Technology Degree Programme in Business
+                        </div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">MBA - International Business and Law</div>
+                                <div class="company">Åbo Akademi</div>
+                            </div>
+                            <div class="duration">2004 - 2006</div>
+                        </div>
+                        <div class="job-description">
+                            Masters degree in Administration with focus on international business management
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🌟 Key Achievements</h2>
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; border-left: 4px solid #27ae60;">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #3498db; font-size: 18px;">🎯</span>
+                            <span><strong>AI Innovation:</strong> Pioneered the integration of AI prompt engineering in software testing, reducing manual test case creation by 60%</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #3498db; font-size: 18px;">🚀</span>
+                            <span><strong>Industry Speaker:</strong> Presented "AI in Quality Assurance" at Testaus ja AI 2024 conference</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #3498db; font-size: 18px;">🏆</span>
+                            <span><strong>Cross-platform Expertise:</strong> Successfully managed testing for 4 major Finnish banks' mobile applications</span>
+                        </li>
+                        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: #3498db; font-size: 18px;">📊</span>
+                            <span><strong>Process Optimization:</strong> Implemented AI-enhanced automation workflows improving testing efficiency by 45%</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize when the document is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Resume loaded successfully');
+            // Check if all required libraries are loaded
+            if (typeof html2canvas === 'undefined' || typeof window.jspdf === 'undefined') {
+                console.error('Required libraries not loaded');
+                addErrorBanner('Some features may not work correctly. Please check your internet connection.');
+            }
+            
+            // Add event listeners for all buttons
+            document.querySelectorAll('.action-btn').forEach(btn => {
+                btn.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        });
+        
+        // Add an error banner if needed
+        function addErrorBanner(message) {
+            const banner = document.createElement('div');
+            banner.className = 'error-banner';
+            banner.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${message} <button class="close-btn">×</button>`;
+            document.body.insertBefore(banner, document.body.firstChild);
+            
+            banner.querySelector('.close-btn').addEventListener('click', function() {
+                banner.remove();
+            });
+        }
+        
+        // Show a notification message to the user
+        function showNotification(message, type = 'success') {
+            // Remove any existing notification
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                document.body.removeChild(existingNotification);
+            }
+            
+            // Create a new notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = message;
+            notification.setAttribute('role', 'alert');
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => notification.classList.add('show'), 10);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+        
+        function printResume() {
+            try {
+                // Add a small visual feedback when print is clicked
+                document.body.classList.add('printing');
+                setTimeout(() => {
+                    window.print();
+                    document.body.classList.remove('printing');
+                    showNotification('<i class="fas fa-check-circle"></i> Print dialog opened');
+                }, 300);
+            } catch (error) {
+                console.error('Print error:', error);
+                showNotification('<i class="fas fa-exclamation-triangle"></i> Print failed. Try again.', 'error');
+            }
+        }
+        
+        function downloadPDF() {
+            try {
+                if (typeof window.jspdf === 'undefined' || typeof html2canvas === 'undefined') {
+                    showNotification('<i class="fas fa-exclamation-triangle"></i> PDF generation libraries not loaded. Check internet connection.', 'error');
+                    return;
+                }
+                
+                const { jsPDF } = window.jspdf;
+                const resumeElement = document.getElementById('resume-content');
+                
+                // Show loading indicator
+                const loadingIndicator = document.createElement('div');
+                loadingIndicator.className = 'loading-indicator';
+                loadingIndicator.setAttribute('role', 'status');
+                loadingIndicator.setAttribute('aria-live', 'polite');
+                loadingIndicator.innerHTML = '<div class="spinner"></div><p>Generating PDF...</p>';
+                document.body.appendChild(loadingIndicator);
+                
+                // Hide action buttons temporarily
+                const actionButtons = document.querySelector('.action-buttons');
+                actionButtons.style.display = 'none';
+                
+                setTimeout(() => {
+                    html2canvas(resumeElement, {
+                        scale: 2,
+                        useCORS: true,
+                        allowTaint: true,
+                        backgroundColor: '#ffffff',
+                        logging: false, // Disable logging for better performance
+                        onclone: (doc) => {
+                            // Ensure images are properly loaded in the cloned document
+                            const images = doc.getElementsByTagName('img');
+                            for (let i = 0; i < images.length; i++) {
+                                images[i].crossOrigin = 'anonymous';
+                            }
+                        }
+                    }).then(function(canvas) {
+                        try {
+                            const imgData = canvas.toDataURL('image/png');
+                            const pdf = new jsPDF('p', 'mm', 'a4');
+                            
+                            const imgWidth = 210;
+                            const pageHeight = 295;
+                            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                            let heightLeft = imgHeight;
+                            
+                            let position = 0;
+                            
+                            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                            heightLeft -= pageHeight;
+                            
+                            while (heightLeft >= 0) {
+                                position = heightLeft - imgHeight;
+                                pdf.addPage();
+                                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                                heightLeft -= pageHeight;
+                            }
+                            
+                            // Add metadata
+                            pdf.setProperties({
+                                title: 'Renata Baldissara-Kunnela - AI & Testing Specialist Resume',
+                                subject: 'Professional Resume',
+                                author: 'Renata Baldissara-Kunnela',
+                                keywords: 'resume, CV, AI, testing, specialist',
+                                creator: 'Professional Resume Generator'
+                            });
+                            
+                            pdf.save('Renata_Baldissara-Kunnela_AI_Resume.pdf');
+                            
+                            // Show action buttons again and remove loading indicator
+                            actionButtons.style.display = 'flex';
+                            document.body.removeChild(loadingIndicator);
+                            showNotification('<i class="fas fa-check-circle"></i> PDF downloaded successfully');
+                        } catch (error) {
+                            console.error('PDF generation error:', error);
+                            actionButtons.style.display = 'flex';
+                            document.body.removeChild(loadingIndicator);
+                            showNotification('<i class="fas fa-exclamation-triangle"></i> Failed to generate PDF', 'error');
+                        }
+                    }).catch(error => {
+                        console.error('Canvas error:', error);
+                        actionButtons.style.display = 'flex';
+                        document.body.removeChild(loadingIndicator);
+                        showNotification('<i class="fas fa-exclamation-triangle"></i> Failed to render resume for PDF', 'error');
+                    });
+                }, 500); // Small delay to ensure UI updates before heavy processing
+            } catch (error) {
+                console.error('Overall PDF error:', error);
+                showNotification('<i class="fas fa-exclamation-triangle"></i> An unexpected error occurred', 'error');
+            }
+        }
+        
+        function shareResume() {
+            try {
+                // First check if the page is served over HTTPS (required for Web Share API)
+                const isHttps = window.location.protocol === 'https:';
+                
+                // Check if Web Share API is available and we're on HTTPS
+                if (navigator.share && isHttps) {
+                    navigator.share({
+                        title: 'Renata Baldissara-Kunnela - AI & Testing Specialist Resume',
+                        text: 'Check out Renata Baldissara-Kunnela\'s professional resume as an AI & Testing Specialist.',
+                        url: window.location.href
+                    })
+                    .then(() => showNotification('<i class="fas fa-check-circle"></i> Resume shared successfully'))
+                    .catch(error => {
+                        // User cancelled share operation or other error
+                        if (error.name !== 'AbortError') { 
+                            console.error('Error sharing:', error);
+                            showNotification('<i class="fas fa-exclamation-triangle"></i> Sharing failed', 'error');
+                        }
+                    });
+                } else {
+                    // Fallback for browsers that don't support Web Share API
+                    // Try the newer clipboard API first
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(window.location.href)
+                            .then(() => {
+                                showNotification('<i class="fas fa-check-circle"></i> Resume URL copied to clipboard');
+                            })
+                            .catch(err => {
+                                console.error('Clipboard API error:', err);
+                                fallbackCopyToClipboard();
+                            });
+                    } else {
+                        fallbackCopyToClipboard();
+                    }
+                }
+            } catch (error) {
+                console.error('Share feature error:', error);
+                showNotification('<i class="fas fa-exclamation-triangle"></i> Sharing functionality error', 'error');
+            }
+        }
+        
+        // Fallback method for copying to clipboard
+        function fallbackCopyToClipboard() {
+            try {
+                // Create a temporary input element
+                const input = document.createElement('input');
+                input.value = window.location.href;
+                input.setAttribute('readonly', '');
+                input.style.position = 'absolute';
+                input.style.left = '-9999px';
+                document.body.appendChild(input);
+                
+                // Select and copy
+                const isIOS = navigator.userAgent.match(/ipad|iphone/i);
+                if (isIOS) {
+                    // Create a range and selection for iOS
+                    const range = document.createRange();
+                    range.selectNodeContents(input);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    input.setSelectionRange(0, input.value.length);
+                } else {
+                    input.select();
+                }
+                
+                const success = document.execCommand('copy');
+                document.body.removeChild(input);
+                
+                if (success) {
+                    showNotification('<i class="fas fa-check-circle"></i> Resume URL copied to clipboard');
+                } else {
+                    showNotification('<i class="fas fa-exclamation-triangle"></i> Failed to copy URL', 'error');
+                }
+            } catch (err) {
+                console.error('Fallback clipboard error:', err);
+                showNotification('<i class="fas fa-exclamation-triangle"></i> Could not copy URL', 'error');
+            }
+        }
+    </script>
+    <footer class="footer-copyright">
+        <p>&copy; 2025 Renata Baldissara-Kunnela - All Rights Reserved</p>
+    </footer>
+</body>
+</html>
