@@ -600,14 +600,20 @@
             font-size: 14px;
         }
         
-        /* Print Styles - High Fidelity */
+        /* Print Styles - Clean Text Only Version */
         @media print {
             * {
-                -webkit-print-color-adjust: exact !important;
-                color-adjust: exact !important;
-                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: economy !important;
+                color-adjust: economy !important;
+                print-color-adjust: economy !important;
                 transition: none !important;
                 animation: none !important;
+                background: white !important;
+                background-color: white !important;
+                background-image: none !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+                border-radius: 0 !important;
             }
 
             /* Hide elements that shouldn't be printed */
@@ -617,7 +623,7 @@
 
             @page {
                 size: A4;
-                margin: 15mm;
+                margin: 20mm;
             }
 
             html, body {
@@ -625,175 +631,201 @@
                 margin: 0 !important;
                 padding: 0 !important;
                 height: auto !important;
-                min-height: initial !important; /* Force reset of min-height */
+                min-height: initial !important;
                 overflow: visible !important;
-                font-size: 10pt;
-                line-height: 1.4;
-                color: #2c3e50 !important;
-                -webkit-print-color-adjust: exact !important;
+                font-family: Arial, sans-serif !important;
+                font-size: 11pt !important;
+                line-height: 1.5 !important;
+                color: black !important;
             }
 
             .resume-container {
-                /* Force the container back into the document flow */
                 position: static !important;
                 width: 100% !important;
                 max-width: 100% !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 box-shadow: none !important;
-                border-radius: 0 !important;
-                display: grid !important;
-                grid-template-columns: 300px 1fr !important; /* Maintain layout */
+                border: none !important;
+                display: block !important;
                 overflow: visible !important;
                 background: white !important;
-                page-break-inside: avoid !important;
             }
 
             .sidebar {
-                grid-column: 1 / 2;
-                background: #34495e !important;
-                background-color: #34495e !important;
-                color: white !important;
-                padding: 20px !important;
-                page-break-inside: avoid !important;
-                -webkit-print-color-adjust: exact !important;
+                display: block !important;
+                background: white !important;
+                color: black !important;
+                padding: 0 !important;
+                margin-bottom: 20pt !important;
+                border: none !important;
             }
 
-            .sidebar::before {
-                background: #3498db !important;
-                background-color: #3498db !important;
+            .sidebar::before, .sidebar::after {
+                display: none !important;
             }
 
             .sidebar *, .sidebar .icon {
-                color: white !important;
-                text-shadow: none !important;
+                color: black !important;
+                background: white !important;
             }
             
             .profile-img {
-                width: 120px !important;
-                height: 120px !important;
-                border-width: 3px !important;
+                display: none !important;
             }
 
             .name {
-                font-size: 20pt !important;
+                font-size: 16pt !important;
+                font-weight: bold !important;
+                color: black !important;
+                margin-bottom: 5pt !important;
             }
 
             .title {
                 font-size: 12pt !important;
+                color: black !important;
+                margin-bottom: 10pt !important;
             }
 
             .sidebar-title {
                 font-size: 12pt !important;
-                border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+                font-weight: bold !important;
+                color: black !important;
+                border-bottom: 1px solid black !important;
+                margin-bottom: 8pt !important;
+                padding-bottom: 2pt !important;
             }
 
             .sidebar-content, .contact-info {
-                font-size: 9pt !important;
+                font-size: 10pt !important;
+                color: black !important;
+                line-height: 1.4 !important;
             }
 
             .skill-item {
-                padding: 8px 10px !important;
-                border-left-width: 2px !important;
-                background-color: rgba(255,255,255,0.1) !important;
-                -webkit-print-color-adjust: exact !important;
-                color-adjust: exact !important;
+                padding: 2pt 0 !important;
+                border: none !important;
+                background: white !important;
+                color: black !important;
+                display: block !important;
             }
 
             .main-content {
-                grid-column: 2 / 3;
-                padding: 20px !important;
+                display: block !important;
+                padding: 0 !important;
                 background: white !important;
             }
 
             .ai-highlight {
-                padding: 20px !important;
+                padding: 10pt !important;
                 box-shadow: none !important;
-                border: 1px solid #eee;
-                background: #3498db !important;
-                background-color: #3498db !important;
-                color: white !important;
-                -webkit-print-color-adjust: exact !important;
+                border: 1pt solid black !important;
+                background: white !important;
+                color: black !important;
+                margin-bottom: 10pt !important;
             }
 
             .ai-highlight h2 {
-                font-size: 16pt !important;
-                color: white !important;
+                font-size: 14pt !important;
+                color: black !important;
+                font-weight: bold !important;
             }
 
             .ai-highlight p {
-                color: white !important;
+                color: black !important;
             }
 
             .section {
                 page-break-inside: avoid !important;
-                break-inside: avoid !important;
+                margin-bottom: 15pt !important;
             }
 
             .section-title {
                 font-size: 14pt !important;
-                padding-bottom: 8px !important;
-                color: #2c3e50 !important;
-                border-bottom: 3px solid #3498db !important;
+                font-weight: bold !important;
+                padding-bottom: 5pt !important;
+                color: black !important;
+                border-bottom: 1pt solid black !important;
+                margin-bottom: 10pt !important;
             }
 
             .experience-item, .education-item, .cert-card {
                 break-inside: avoid !important;
                 page-break-inside: avoid !important;
                 box-shadow: none !important;
-                border: 1px solid #eee !important;
-                background-color: #f8f9fa !important;
+                border: none !important;
+                background: white !important;
                 overflow: visible !important;
-                padding: 15px !important;
-                -webkit-print-color-adjust: exact !important;
+                padding: 0 !important;
+                margin-bottom: 12pt !important;
             }
 
             .job-title {
                 font-size: 12pt !important;
-                color: #2c3e50 !important;
+                font-weight: bold !important;
+                color: black !important;
+                margin-bottom: 2pt !important;
             }
 
             .company {
                 font-size: 11pt !important;
-                color: #3498db !important;
+                color: black !important;
+                margin-bottom: 2pt !important;
             }
 
             .duration {
-                font-size: 9pt !important;
-                padding: 3px 10px !important;
-                background-color: #ecf0f1 !important;
-                color: #7f8c8d !important;
-                -webkit-print-color-adjust: exact !important;
+                font-size: 10pt !important;
+                color: black !important;
+                background: white !important;
+                border: none !important;
+                padding: 0 !important;
+                margin-bottom: 5pt !important;
             }
 
             .tech-tag {
-                font-size: 8pt !important;
-                padding: 4px 10px !important;
-                box-shadow: none !important;
-                background: #3498db !important;
-                color: white !important;
-                -webkit-print-color-adjust: exact !important;
+                font-size: 9pt !important;
+                color: black !important;
+                background: white !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 5pt 0 0 !important;
+                display: inline !important;
             }
 
-            /* Use a simpler approach for the gradient text */
+            .tech-tag:after {
+                content: ", " !important;
+            }
+
+            .tech-tag:last-child:after {
+                content: "" !important;
+            }
+
             .highlight-ai {
-                color: #3498db !important;
+                color: black !important;
                 font-weight: bold !important;
-                -webkit-text-fill-color: #3498db !important;
             }
 
-            /* Hide decorative elements that don't print well */
-            .ai-badge::before, .ai-highlight::before, .action-btn::before, .profile-img:hover, .skill-item:hover, .experience-item:hover, .education-item:hover, .cert-card:hover {
-                transform: none !important;
-                box-shadow: none !important;
-            }
-            
-            /* Make sure the ai badge has proper colors */
             .ai-badge {
-                background: #3498db !important;
-                background-color: #3498db !important;
-                color: white !important;
-                -webkit-print-color-adjust: exact !important;
+                background: white !important;
+                color: black !important;
+                border: 1pt solid black !important;
+                padding: 2pt 5pt !important;
+            }
+
+            /* Remove all decorative elements for print */
+            ::before, ::after {
+                display: none !important;
+            }
+
+            /* Force everything to be black text on white background */
+            *, *::before, *::after {
+                background: white !important;
+                background-color: white !important;
+                background-image: none !important;
+                color: black !important;
+                border-color: black !important;
+                text-shadow: none !important;
+                box-shadow: none !important;
             }
         }
         
@@ -1514,11 +1546,13 @@
                 style.id = 'print-style-helper';
                 style.innerHTML = `
                     @media print {
-                        /* Force colors to print */
+                        /* Clean black and white print version */
                         * {
-                            -webkit-print-color-adjust: exact !important;
-                            color-adjust: exact !important;
-                            print-color-adjust: exact !important;
+                            -webkit-print-color-adjust: economy !important;
+                            color-adjust: economy !important;
+                            print-color-adjust: economy !important;
+                            background: white !important;
+                            color: black !important;
                         }
                         /* Hide non-printable elements */
                         .action-buttons, .footer-copyright, .notification, .error-banner {
