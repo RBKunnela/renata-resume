@@ -1346,7 +1346,7 @@
             <i class="fas fa-print"></i> Print Resume
         </button>
         <button class="action-btn" onclick="downloadPDF()">
-            <i class="fas fa-file-pdf"></i> Download PDF
+            <i class="fas fa-file-pdf"></i> Download Compressed PDF
         </button>
         <a href="mailto:renata.baldissara-kunnela@friendlyai.fi?subject=Contact%20from%20Resume&body=Hello%20Renata,%0D%0A%0D%0AI%20found%20your%20resume%20and%20would%20like%20to%20discuss..." 
            class="action-btn email">
@@ -1722,7 +1722,7 @@
         </div>
     </div>
 
-    <!-- Add PDF generation library -->
+    <!-- Add PDF generation library (used for compressed PDF generation) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
     
@@ -1730,6 +1730,9 @@
         // Initialize when the document is fully loaded
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Resume loaded successfully');
+            
+            // Preload the profile image to ensure it's cached
+            preloadProfileImage();
             
             // Add event listeners for all buttons
             document.querySelectorAll('.action-btn').forEach(btn => {
@@ -1741,6 +1744,12 @@
                 });
             });
         });
+        
+        // Preload and cache the profile image
+        function preloadProfileImage() {
+            const profileImg = new Image();
+            profileImg.src = document.querySelector('.profile-img img').src;
+        }
         
         // Add an error banner if needed
         function addErrorBanner(message) {
@@ -1785,33 +1794,8 @@
         
         function printResume() {
             try {
-                // Apply any necessary print-specific styles
-                const style = document.createElement('style');
-                style.id = 'print-style-helper';
-                style.innerHTML = `
-                    @media print {
-                        /* Enhanced print styles for better layout */
-                        * {
-                            -webkit-print-color-adjust: exact !important;
-                            color-adjust: exact !important;
-                            print-color-adjust: exact !important;
-                        }
-                        /* Hide non-printable elements */
-                        .action-buttons, .footer-copyright, .notification, .error-banner {
-                            display: none !important;
-                        }
-                        /* Force page breaks where needed */
-                        .section {
-                            page-break-inside: avoid !important;
-                        }
-                        /* Add page numbers */
-                        @page {
-                            size: A4;
-                            margin: 8mm;
-                        }
-                    }
-                `;
-                document.head.appendChild(style);
+                // Apply regular print-specific styles (without image optimization)
+                applyPrintStyles();
                 
                 // Show user message about optimized print layout
                 showNotification('<i class="fas fa-info-circle"></i> Preparing optimized print layout...', 'info');
@@ -1821,12 +1805,9 @@
                     // Trigger the print dialog
                     window.print();
                     
-                    // Clean up temporary style after printing is initiated
+                    // Clean up temporary styles after printing is initiated
                     setTimeout(() => {
-                        const tempStyle = document.getElementById('print-style-helper');
-                        if (tempStyle) {
-                            document.head.removeChild(tempStyle);
-                        }
+                        removeTemporaryStyles();
                     }, 1000);
                 }, 500);
             } catch (error) {
@@ -1835,16 +1816,274 @@
             }
         }
         
+        // Apply standard print styles
+        function applyPrintStyles() {
+            const style = document.createElement('style');
+            style.id = 'print-style-helper';
+            style.innerHTML = `
+                @media print {
+                    /* Enhanced print styles for better layout */
+                    * {
+                        -webkit-print-color-adjust: exact !important;
+                        color-adjust: exact !important;
+                        print-color-adjust: exact !important;
+                    }
+                    /* Hide non-printable elements */
+                    .action-buttons, .footer-copyright, .notification, .error-banner {
+                        display: none !important;
+                    }
+                    /* Force page breaks where needed */
+                    .section {
+                        page-break-inside: avoid !important;
+                    }
+                    /* Add page numbers */
+                    @page {
+                        size: A4;
+                        margin: 8mm;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Apply compression-focused print styles with additional optimizations
+        function applyCompressedPrintStyles() {
+            // First apply regular print styles
+            applyPrintStyles();
+            
+            // Now add compression-specific styles
+            const compressionStyle = document.createElement('style');
+            compressionStyle.id = 'compression-style-helper';
+            compressionStyle.innerHTML = `
+                @media print {
+                    /* Optimize font rendering without changing appearance */
+                    body {
+                        font-size: 9pt !important;
+                        line-height: 1.2 !important;
+                    }
+                    
+                    /* Slightly optimize page margins */
+                    @page {
+                        margin: 6mm !important;
+                        size: A4 !important;
+                    }
+                    
+                    /* Keep the original layout */
+                    .resume-container {
+                        grid-template-columns: 28% 72% !important;
+                        grid-gap: 8pt !important;
+                    }
+                    
+                    /* Optimize vector graphics rendering */
+                    svg, .icon, i.fas {
+                        vector-effect: non-scaling-stroke !important;
+                    }
+                    
+                    /* Simplify shadows and gradients */
+                    * {
+                        box-shadow: none !important;
+                        text-shadow: none !important;
+                    }
+                    
+                    /* Optimize borders */
+                    .section-title, .sidebar-title, .experience-item, .education-item {
+                        border-width: 0.5pt !important;
+                    }
+                    
+                    /* Slightly optimize spacing without changing appearance */
+                    .section {
+                        margin-bottom: 12pt !important;
+                    }
+                    
+                    /* Optimize background colors for print and ensure no white text on white background */
+                    .sidebar, .ai-highlight, .tech-tag, .ai-badge, .course-card {
+                        background: white !important;
+                        background-image: none !important;
+                        color: #333 !important;
+                        border: 0.5pt solid #ccc !important;
+                    }
+                    
+                    /* Ensure all text has sufficient contrast on white backgrounds */
+                    *, *::before, *::after {
+                        color: #333 !important;
+                    }
+                    
+                    /* Specifically target elements that might have white text */
+                    .tech-tag, .ai-badge, .course-card, .cert-icon, 
+                    .ai-highlight, .action-btn, .highlight-ai, 
+                    [style*="color: white"], [style*="color:#fff"], [style*="color: #fff"], 
+                    [style*="color:#ffffff"], [style*="color: #ffffff"] {
+                        color: #333 !important;
+                    }
+                    
+                    /* Optimize tech tags */
+                    .tech-tag {
+                        font-size: 8pt !important;
+                        padding: 1pt 3pt !important;
+                        margin: 1pt !important;
+                    }
+                    
+                    /* Flatten gradients for better compression */
+                    div[style*="gradient"], *[class*="gradient"] {
+                        background: white !important;
+                        background-image: none !important;
+                    }
+                    
+                    /* Font subsetting and optimization */
+                    @font-face {
+                        font-display: swap !important;
+                        font-family: 'Roboto';
+                        src: local('Roboto') !important;
+                        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD !important;
+                    }
+                    
+                    /* Optimize SVGs and remove animations */
+                    svg {
+                        shape-rendering: optimizeSpeed !important;
+                    }
+                    
+                    /* Use JPEG rendering for all complex gradients */
+                    div[style*="linear-gradient"], div[style*="radial-gradient"] {
+                        -webkit-print-color-adjust: exact !important;
+                        color-adjust: exact !important;
+                        print-color-adjust: exact !important;
+                    }
+                    
+                    /* Optimize transition effects */
+                    * {
+                        transition: none !important;
+                        animation: none !important;
+                    }
+                    
+                    /* Force black and white for best compression */
+                    body {
+                        -webkit-filter: grayscale(100%) !important;
+                        filter: grayscale(100%) !important;
+                    }
+                }
+            `;
+            document.head.appendChild(compressionStyle);
+            
+            // No DOM modifications that would alter appearance
+        }
+        
+        // Remove all temporary styles added for printing
+        function removeTemporaryStyles() {
+            const stylesToRemove = ['print-style-helper', 'compression-style-helper', 'image-optimization-helper'];
+            
+            stylesToRemove.forEach(id => {
+                const styleElement = document.getElementById(id);
+                if (styleElement) {
+                    document.head.removeChild(styleElement);
+                }
+            });
+            
+            // Restore hidden elements after printing
+            document.querySelectorAll('[data-print-hidden="true"]').forEach(el => {
+                el.removeAttribute('data-print-hidden');
+                el.style.display = '';
+            });
+            
+            // Restore original image if it was changed
+            const profileImg = document.querySelector('.profile-img img');
+            if (profileImg && profileImg.hasAttribute('data-original-src')) {
+                profileImg.src = profileImg.getAttribute('data-original-src');
+                profileImg.removeAttribute('data-original-src');
+            }
+        }
+        
+        // Optimize images for print - reduces image quality for smaller PDF file size
+        function optimizeImagesForPrint() {
+            // Create a canvas element to optimize the profile image
+            const profileImg = document.querySelector('.profile-img img');
+            if (profileImg) {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                // Create a new Image object to load the profile picture
+                const img = new Image();
+                img.crossOrigin = 'Anonymous';
+                
+                // Set up the image load handler
+                img.onload = function() {
+                    // Create a smaller version (70% of original size)
+                    const width = Math.floor(img.width * 0.7);
+                    const height = Math.floor(img.height * 0.7);
+                    
+                    // Set canvas dimensions
+                    canvas.width = width;
+                    canvas.height = height;
+                    
+                    // Draw the image at reduced size
+                    ctx.drawImage(img, 0, 0, width, height);
+                    
+                    // Get the compressed image as JPEG with 70% quality
+                    const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7);
+                    
+                    // Create a data attribute on the original image to store the original src
+                    profileImg.setAttribute('data-original-src', profileImg.src);
+                    
+                    // Replace the image source with the compressed version for printing
+                    profileImg.src = compressedDataUrl;
+                };
+                
+                // Load the image from the current source
+                img.src = profileImg.src;
+            }
+            
+            // Add a style that reduces image resolution for print
+            const imageOptStyle = document.createElement('style');
+            imageOptStyle.id = 'image-optimization-helper';
+            imageOptStyle.innerHTML = `
+                @media print {
+                    /* Optimize images for lower resolution */
+                    img {
+                        image-resolution: 72dpi !important;
+                        transform: scale(1.0) !important;
+                        transition: none !important;
+                        animation: none !important;
+                        filter: grayscale(100%) contrast(1.1) !important;
+                    }
+                    
+                    /* Profile image - further optimize */
+                    .profile-img img {
+                        image-resolution: 72dpi !important;
+                        transform: scale(0.9) !important;
+                        filter: grayscale(100%) !important;
+                    }
+                    
+                    /* Ensure better color optimization */
+                    @page {
+                        color-adjust: economy;
+                        print-color-adjust: economy;
+                    }
+                }
+            `;
+            document.head.appendChild(imageOptStyle);
+        }
+        
         function downloadPDF() {
             try {
-                // Show notification that guides the user to use print dialog instead
-                showNotification('<i class="fas fa-info-circle"></i> Opening print dialog. Select "Save as PDF" to download your resume.', 'info');
+                // Show notification about PDF compression
+                showNotification('<i class="fas fa-info-circle"></i> Optimizing and compressing PDF...', 'info');
                 
-                // Wait a moment for the notification to be visible
+                // Optimize images before printing
+                optimizeImagesForPrint();
+                
+                // Wait a moment for optimizations to be applied
                 setTimeout(() => {
-                    // Use the print function which is already working well
-                    printResume();
-                }, 1500);
+                    // Apply additional compression-focused print styles
+                    applyCompressedPrintStyles();
+                    
+                    // Trigger the print dialog
+                    window.print();
+                    
+                    // Clean up after printing
+                    setTimeout(() => {
+                        // Remove temporary styles
+                        removeTemporaryStyles();
+                    }, 1000);
+                }, 800);
             } catch (error) {
                 console.error('PDF error:', error);
                 showNotification('<i class="fas fa-exclamation-triangle"></i> Failed to generate PDF', 'error');
