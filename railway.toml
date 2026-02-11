@@ -4,10 +4,3 @@ dockerfilePath = "./Dockerfile"
 
 [deploy]
 startCommand = "echo 'Static site - no build needed'"
-healthcheckPath = "/"
-healthcheckTimeout = 60
-
-[[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
