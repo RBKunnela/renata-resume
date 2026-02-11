@@ -1,0 +1,11 @@
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "echo 'Static site - no build needed'"
+healthcheckPath = "/"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
