@@ -1,166 +1,336 @@
 // ========================================
-// CV Website JavaScript - AI Optimized
+// Portfolio Website JavaScript
+// Renata Baldissara-Kunnela
 // ========================================
 
-// Language toggle functionality
-function showCV(lang) {
-    // Hide all CV content
-    document.querySelectorAll('.cv-content').forEach(el => {
-        el.classList.remove('active');
+// ===== LANGUAGE SYSTEM =====
+const translations = {
+    en: {
+        typedPhrases: [
+            'LLM & Agent Systems',
+            'AI Quality Engineering',
+            'RAG & Fine-tuning',
+            'Guardrails & Evaluation',
+            'Production AI Builder'
+        ]
+    },
+    fi: {
+        typedPhrases: [
+            'LLM & Agenttijärjestelmät',
+            'AI Quality Engineering',
+            'RAG & Hienosäätö',
+            'Guardrails & Evaluointi',
+            'Tuotanto-AI-rakentaja'
+        ]
+    }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+    currentLang = lang;
+
+    // Update button states
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.getElementById(`btn-${lang}`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    // Update all data-en / data-fi elements
+    document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text !== null) {
+            el.innerHTML = text;
+        }
     });
 
-    // Remove active class from all buttons
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
+    // Update nav links
+    document.querySelectorAll('.nav-link[data-en]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text !== null) el.textContent = text;
     });
 
-    // Show selected CV content
-    document.getElementById(`cv-${lang}`).classList.add('active');
+    // Update HTML lang attribute
+    document.documentElement.lang = lang === 'fi' ? 'fi' : 'en';
 
-    // Add active class to selected button
-    document.getElementById(`btn-${lang}`).classList.add('active');
-
-    // Save preference to localStorage
-    localStorage.setItem('cv-lang-preference', lang);
-
-    // Update URL hash without scrolling
-    history.pushState(null, null, `#${lang}`);
-
-    // Update meta description based on language
-    updateMetaDescription(lang);
-}
-
-// Update meta description for SEO
-function updateMetaDescription(lang) {
+    // Update meta description
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (lang === 'fi') {
-        metaDesc.setAttribute('content', 'AI Developer ja AI Quality Engineering -osaaja - LLM, Agenttijärjestelmät, RAG ja Testiautomaatio');
-    } else {
-        metaDesc.setAttribute('content', 'AI Developer and AI Quality Engineering specialist - LLM, Agent Systems, RAG, and Test Automation');
+    if (metaDesc) {
+        metaDesc.setAttribute('content', lang === 'fi'
+            ? 'AI Developer ja AI Quality Engineering -osaaja — LLM, Agenttijärjestelmät, RAG ja Testiautomaatio. Portfolio tuotantotason AI-projekteista.'
+            : 'AI Developer and AI Quality Engineering specialist — LLM, Agent Systems, RAG, and Test Automation. Portfolio of production AI projects.'
+        );
+    }
+
+    // Save preference
+    localStorage.setItem('portfolio-lang', lang);
+
+    // Update URL hash
+    history.replaceState(null, null, `#${lang}`);
+
+    // Restart typed animation with new phrases
+    if (typedInstance) {
+        typedInstance.restart(translations[lang].typedPhrases);
     }
 }
 
-// Initialize: check URL hash or localStorage
-function init() {
-    const hash = window.location.hash.substring(1);
-    const saved = localStorage.getItem('cv-lang-preference');
-    const lang = (hash === 'en' || hash === 'fi') ? hash : (saved || 'en');
-    showCV(lang);
+// ===== TYPED TEXT ANIMATION =====
+class TypedText {
+    constructor(elementId, phrases, options = {}) {
+        this.el = document.getElementById(elementId);
+        this.phrases = phrases;
+        this.typeSpeed = options.typeSpeed || 60;
+        this.deleteSpeed = options.deleteSpeed || 35;
+        this.pauseAfterType = options.pauseAfterType || 2000;
+        this.pauseAfterDelete = options.pauseAfterDelete || 500;
+        this.phraseIndex = 0;
+        this.charIndex = 0;
+        this.isDeleting = false;
+        this.timer = null;
+        if (this.el) this.tick();
+    }
+
+    tick() {
+        const phrase = this.phrases[this.phraseIndex];
+        const current = phrase.substring(0, this.charIndex);
+        if (this.el) this.el.textContent = current;
+
+        let delay = this.isDeleting ? this.deleteSpeed : this.typeSpeed;
+
+        if (!this.isDeleting && this.charIndex === phrase.length) {
+            delay = this.pauseAfterType;
+            this.isDeleting = true;
+        } else if (this.isDeleting && this.charIndex === 0) {
+            this.isDeleting = false;
+            this.phraseIndex = (this.phraseIndex + 1) % this.phrases.length;
+            delay = this.pauseAfterDelete;
+        }
+
+        this.charIndex += this.isDeleting ? -1 : 1;
+        this.timer = setTimeout(() => this.tick(), delay);
+    }
+
+    restart(newPhrases) {
+        if (this.timer) clearTimeout(this.timer);
+        this.phrases = newPhrases;
+        this.phraseIndex = 0;
+        this.charIndex = 0;
+        this.isDeleting = false;
+        this.tick();
+    }
 }
 
-// Add smooth scroll behavior
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href !== '#en' && href !== '#fi') {
+let typedInstance = null;
+
+// ===== THEME SYSTEM =====
+function initTheme() {
+    const saved = localStorage.getItem('portfolio-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = saved || (prefersDark ? 'dark' : 'light');
+    applyTheme(theme);
+}
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('portfolio-theme', theme);
+    const icon = document.getElementById('themeIcon');
+    if (icon) {
+        icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+}
+
+function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+}
+
+// ===== NAVBAR =====
+function initNavbar() {
+    const navbar = document.getElementById('navbar');
+    const hamburger = document.getElementById('navHamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        updateActiveNavLink();
+    }, { passive: true });
+
+    // Hamburger menu
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+    }
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+        });
+    });
+}
+
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id], .section-block[id]');
+    let current = '';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// ===== SCROLL ANIMATIONS =====
+function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    // Add fade-in class to animatable elements
+    const animatables = document.querySelectorAll(
+        '.expertise-card, .project-card, .timeline-item, .edu-card, ' +
+        '.skill-category, .cert-card, .contact-item, .cta-card, .stat-item'
+    );
+
+    animatables.forEach((el, i) => {
+        el.classList.add('fade-in');
+        el.style.transitionDelay = `${(i % 6) * 0.07}s`;
+        observer.observe(el);
+    });
+
+    // Also observe section headers
+    document.querySelectorAll('.section-header, .about-text, .projects-category-label').forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+}
+
+// ===== SMOOTH SCROLL =====
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            // Allow lang hash changes to pass through
+            if (href === '#en' || href === '#fi') return;
+
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-        }
+        });
     });
-});
-
-// Add animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe sections for animation
-document.addEventListener('DOMContentLoaded', () => {
-    init();
-
-    // Add initial animation state to sections
-    document.querySelectorAll('.section').forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(section);
-    });
-
-    // Handle browser back/forward buttons
-    window.addEventListener('popstate', () => {
-        const hash = window.location.hash.substring(1);
-        if (hash === 'en' || hash === 'fi') {
-            showCV(hash);
-        }
-    });
-});
-
-// Keyboard navigation for accessibility
-document.addEventListener('keydown', (e) => {
-    if (e.altKey) {
-        if (e.key === '1' || e.key === 'e') {
-            e.preventDefault();
-            showCV('en');
-        } else if (e.key === '2' || e.key === 'f') {
-            e.preventDefault();
-            showCV('fi');
-        }
-    }
-});
-
-// Print functionality - always show English when printing
-window.addEventListener('beforeprint', () => {
-    // Ensure English version is visible when printing
-    document.querySelectorAll('.cv-content').forEach(el => {
-        el.classList.remove('active');
-    });
-    document.getElementById('cv-en').classList.add('active');
-});
-
-// Add to calendar functionality (optional)
-function addToCalendar() {
-    const event = {
-        title: 'Interview with Renata Baldissara-Kunnela',
-        description: 'AI Developer & Quality Engineering Specialist',
-        location: 'Video Call / Viitasaari, Finland',
-        email: 'renatbk.linkedin@gmail.com'
-    };
-    // Calendar integration can be added here
-    console.log('Calendar event:', event);
 }
 
-// Export functionality - save CV as PDF
+// ===== PRINT / EXPORT =====
 function exportToPDF() {
     window.print();
 }
 
-// Copy email to clipboard
+// ===== COPY EMAIL =====
 function copyEmail() {
     navigator.clipboard.writeText('renatbk.linkedin@gmail.com').then(() => {
-        // Could add toast notification here
-        console.log('Email copied to clipboard');
+        showToast('Email copied to clipboard!');
     });
 }
 
-// Track CV views (for analytics - optional)
-function trackView() {
-    const views = localStorage.getItem('cv-views') || 0;
-    localStorage.setItem('cv-views', parseInt(views) + 1);
-    console.log('CV views:', parseInt(views) + 1);
+// ===== TOAST NOTIFICATION =====
+function showToast(message) {
+    const existing = document.querySelector('.toast');
+    if (existing) existing.remove();
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        color: var(--text);
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        box-shadow: var(--shadow);
+        z-index: 9999;
+        animation: slideIn 0.3s ease;
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
 }
 
-trackView();
+// ===== PRINT HANDLER =====
+window.addEventListener('beforeprint', () => {
+    // Make all sections visible for printing
+    document.querySelectorAll('.fade-in').forEach(el => {
+        el.classList.add('visible');
+    });
+});
 
-// Service Worker registration for offline support (optional)
-if ('serviceWorker' in navigator) {
-    // Add service worker registration here if needed
-    console.log('Service Worker support detected');
-}
+// ===== KEYBOARD SHORTCUTS =====
+document.addEventListener('keydown', (e) => {
+    if (e.altKey) {
+        if (e.key === '1' || e.key === 'e') { e.preventDefault(); setLang('en'); }
+        if (e.key === '2' || e.key === 'f') { e.preventDefault(); setLang('fi'); }
+        if (e.key === 't') { e.preventDefault(); toggleTheme(); }
+    }
+});
 
-console.log('CV Website Loaded - AI Optimized Version');
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+    // Theme
+    initTheme();
+
+    // Theme toggle button
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+
+    // Language: check URL hash or localStorage
+    const hash = window.location.hash.substring(1);
+    const savedLang = localStorage.getItem('portfolio-lang');
+    const lang = (hash === 'en' || hash === 'fi') ? hash : (savedLang || 'en');
+    setLang(lang);
+
+    // Typed text
+    typedInstance = new TypedText('typed-text', translations[lang].typedPhrases);
+
+    // Navbar
+    initNavbar();
+
+    // Scroll animations
+    initScrollAnimations();
+
+    // Smooth scroll
+    initSmoothScroll();
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', () => {
+        const h = window.location.hash.substring(1);
+        if (h === 'en' || h === 'fi') setLang(h);
+    });
+
+    console.log('Portfolio loaded — Renata Baldissara-Kunnela');
+});
