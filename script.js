@@ -282,6 +282,123 @@ function showToast(message) {
     setTimeout(() => toast.remove(), 3000);
 }
 
+// ===== CONTACT FORM MODAL =====
+function openContactModal(e) {
+    if (e) e.preventDefault();
+    const modal = document.getElementById('contactModal');
+    if (!modal) return;
+    modal.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+    // Update placeholders for current language
+    modal.querySelectorAll('[data-placeholder-en]').forEach(el => {
+        const ph = el.getAttribute(`data-placeholder-${currentLang}`);
+        if (ph) el.placeholder = ph;
+    });
+    // Focus first input
+    setTimeout(() => {
+        const first = modal.querySelector('input:not([type=hidden]):not([type=checkbox])');
+        if (first) first.focus();
+    }, 100);
+}
+
+function closeContactModal() {
+    const modal = document.getElementById('contactModal');
+    if (!modal) return;
+    modal.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+    // Reset form state
+    const form = document.getElementById('contactForm');
+    if (form) {
+        form.reset();
+        form.querySelectorAll('.has-error').forEach(el => el.classList.remove('has-error'));
+        form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+    }
+    const success = document.getElementById('formSuccess');
+    const error = document.getElementById('formError');
+    if (success) success.setAttribute('hidden', '');
+    if (error) error.setAttribute('hidden', '');
+    const btn = document.getElementById('submitBtn');
+    if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Send Message</span>'; }
+}
+
+function initContactForm() {
+    const modal = document.getElementById('contactModal');
+    const form  = document.getElementById('contactForm');
+    if (!modal || !form) return;
+
+    // Close on overlay click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeContactModal();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeContactModal();
+    });
+
+    // Form submit
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Validate
+        let valid = true;
+        const nameField  = document.getElementById('contactName');
+        const emailField = document.getElementById('contactEmail');
+        const msgField   = document.getElementById('contactMessage');
+
+        [nameField, emailField, msgField].forEach(field => {
+            const group = field.closest('.form-group');
+            if (!field.value.trim() || (field.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(field.value))) {
+                group.classList.add('has-error');
+                field.classList.add('invalid');
+                valid = false;
+            } else {
+                group.classList.remove('has-error');
+                field.classList.remove('invalid');
+            }
+        });
+
+        if (!valid) return;
+
+        // Show loading state
+        const btn = document.getElementById('submitBtn');
+        const origHTML = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<span class="btn-spinner"></span> Sending…';
+
+        const success = document.getElementById('formSuccess');
+        const errorEl = document.getElementById('formError');
+        success.setAttribute('hidden', '');
+        errorEl.setAttribute('hidden', '');
+
+        // Submit to Web3Forms
+        try {
+            const data = new FormData(form);
+            const res  = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: data
+            });
+            const json = await res.json();
+
+            if (json.success) {
+                success.removeAttribute('hidden');
+                form.reset();
+                btn.disabled = false;
+                btn.innerHTML = origHTML;
+                // Auto-close after 3s
+                setTimeout(() => closeContactModal(), 3000);
+            } else {
+                throw new Error(json.message || 'Submission failed');
+            }
+        } catch (err) {
+            console.error('Contact form error:', err);
+            errorEl.removeAttribute('hidden');
+            btn.disabled = false;
+            btn.innerHTML = origHTML;
+        }
+    });
+}
+
 // ===== PRINT HANDLER =====
 window.addEventListener('beforeprint', () => {
     // Make all sections visible for printing
@@ -331,6 +448,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const h = window.location.hash.substring(1);
         if (h === 'en' || h === 'fi') setLang(h);
     });
+
+    // Contact form modal
+    initContactForm();
 
     console.log('Portfolio loaded — Renata Baldissara-Kunnela');
 });

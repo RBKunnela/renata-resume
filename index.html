@@ -111,7 +111,7 @@
             <div class="hero-social">
                 <a href="https://github.com/RBKunnela" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/renata-kunnela-4002a726a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:renatbk.linkedin@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="#" onclick="openContactModal(event)" title="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
         <div class="hero-scroll-hint">
@@ -587,7 +587,7 @@
                         Open to AI development roles, consulting, and collaboration on interesting AI projects. Feel free to reach out!
                     </p>
                     <div class="contact-items">
-                        <a href="mailto:renatbk.linkedin@gmail.com" class="contact-item">
+                        <a href="#" onclick="openContactModal(event)" class="contact-item">
                             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                             <div>
                                 <span class="contact-label" data-en="Email" data-fi="Sähköposti">Email</span>
@@ -650,7 +650,7 @@
                 <div class="footer-links">
                     <a href="https://github.com/RBKunnela" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/renata-kunnela-4002a726a/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:renatbk.linkedin@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="#" onclick="openContactModal(event)"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -659,6 +659,63 @@
             </div>
         </div>
     </footer>
+
+    <!-- ===== CONTACT FORM MODAL ===== -->
+    <div id="contactModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeContactModal()" aria-label="Close">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon"><i class="fas fa-envelope"></i></div>
+                <h2 id="modalTitle" data-en="Send me a message" data-fi="Lähetä viesti">Send me a message</h2>
+                <p data-en="I'll get back to you as soon as possible." data-fi="Vastaan sinulle mahdollisimman pian.">I'll get back to you as soon as possible.</p>
+            </div>
+            <form id="contactForm" novalidate>
+                <!-- Web3Forms access key — replace YOUR_ACCESS_KEY with the key from https://web3forms.com -->
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+                <input type="hidden" name="subject" value="Portfolio contact — new message">
+                <input type="hidden" name="from_name" value="Portfolio Contact Form">
+                <input type="checkbox" name="botcheck" style="display:none">
+
+                <div class="form-group">
+                    <label for="contactName" data-en="Your name" data-fi="Nimesi">Your name</label>
+                    <input type="text" id="contactName" name="name" required
+                           data-placeholder-en="e.g. John Smith" data-placeholder-fi="esim. Matti Meikäläinen"
+                           placeholder="e.g. John Smith">
+                    <span class="field-error" data-en="Please enter your name." data-fi="Syötä nimesi."></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactEmail" data-en="Your email" data-fi="Sähköpostisi">Your email</label>
+                    <input type="email" id="contactEmail" name="email" required
+                           data-placeholder-en="you@example.com" data-placeholder-fi="sinä@esimerkki.fi"
+                           placeholder="you@example.com">
+                    <span class="field-error" data-en="Please enter a valid email." data-fi="Syötä kelvollinen sähköpostiosoite."></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactMessage" data-en="Message" data-fi="Viesti">Message</label>
+                    <textarea id="contactMessage" name="message" rows="5" required
+                              data-placeholder-en="Hi Renata, I'd like to…" data-placeholder-fi="Hei Renata, haluaisin…"
+                              placeholder="Hi Renata, I'd like to…"></textarea>
+                    <span class="field-error" data-en="Please write a message." data-fi="Kirjoita viesti."></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                    <i class="fas fa-paper-plane"></i>
+                    <span data-en="Send Message" data-fi="Lähetä viesti">Send Message</span>
+                </button>
+
+                <div id="formSuccess" class="form-success" hidden>
+                    <i class="fas fa-check-circle"></i>
+                    <span data-en="Message sent! I'll be in touch soon." data-fi="Viesti lähetetty! Otan yhteyttä pian.">Message sent! I'll be in touch soon.</span>
+                </div>
+                <div id="formError" class="form-error" hidden>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span data-en="Something went wrong. Please try again or email directly." data-fi="Jokin meni pieleen. Yritä uudelleen tai lähetä sähköposti suoraan.">Something went wrong. Please try again or email directly.</span>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Hidden AI keywords for ATS -->
     <div class="ai-keywords" aria-hidden="true">LLM RAG agent orchestration FastAPI Python OpenAI Anthropic Azure LangChain LlamaIndex fine-tuning guardrails evaluation quality engineering test automation Robot Framework ISTQB banking insurance enterprise</div>
