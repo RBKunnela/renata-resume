@@ -243,9 +243,26 @@ function initSmoothScroll() {
     });
 }
 
-// ===== PRINT / EXPORT =====
+// ===== DOWNLOAD CV (language-aware) =====
 function exportToPDF() {
-    window.print();
+    const path = currentLang === 'fi'
+        ? 'docs/cv-fi-pdf/Renata-Baldissara-Kunnela-CV-FI.pdf'
+        : 'docs/cv-en-pdf/Renata-Baldissara-Kunnela-CV-EN.pdf';
+    const a = document.createElement('a');
+    a.href = path;
+    a.download = path.split('/').pop();
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+// ===== OPEN EMAIL CLIENT =====
+function openEmailClient(e) {
+    if (e) e.preventDefault();
+    const subject = currentLang === 'fi'
+        ? 'Yhteydenotto portfolion kautta'
+        : 'Contact from your portfolio';
+    window.location.href = `mailto:renatbk.linkedin@gmail.com?subject=${encodeURIComponent(subject)}`;
 }
 
 // ===== COPY EMAIL =====

@@ -16,6 +16,14 @@
       }
     },
     {
+      "src": "/docs/(.*)\\.pdf",
+      "dest": "/docs/$1.pdf",
+      "headers": {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": "attachment"
+      }
+    },
+    {
       "src": "/(.*)",
       "dest": "/$1"
     }

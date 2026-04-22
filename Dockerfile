@@ -2,8 +2,9 @@
 FROM nginx:alpine
 
 # Copy static files
-COPY index.html styles.css script.js /app/
+COPY index.html styles.css script.js robots.txt sitemap.xml /app/
 COPY health.html /app/
+COPY docs /app/docs
 
 # Create proper nginx config
 RUN echo 'server { \
@@ -16,6 +17,12 @@ RUN echo 'server { \
         access_log off; \
         add_header Content-Type "text/html; charset=utf-8"; \
         return 200 "OK"; \
+    } \
+    \
+    location ~* \.pdf$ { \
+        add_header Content-Type "application/pdf"; \
+        add_header Content-Disposition "attachment"; \
+        try_files $uri =404; \
     } \
     \
     location / { \
