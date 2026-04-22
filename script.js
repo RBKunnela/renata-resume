@@ -257,12 +257,12 @@ function exportToPDF() {
 }
 
 // ===== OPEN EMAIL CLIENT =====
+// Fallback for any older cached HTML still calling this function.
+// Primary path: anchors now use href="mailto:..." directly so the browser
+// handles the handoff to the default mail client without JS.
 function openEmailClient(e) {
     if (e) e.preventDefault();
-    const subject = currentLang === 'fi'
-        ? 'Yhteydenotto portfolion kautta'
-        : 'Contact from your portfolio';
-    window.location.href = `mailto:renatbk.linkedin@gmail.com?subject=${encodeURIComponent(subject)}`;
+    window.location.href = 'mailto:renatbk.linkedin@gmail.com';
 }
 
 // ===== COPY EMAIL =====
