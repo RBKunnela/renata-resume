@@ -16,6 +16,34 @@
       }
     },
     {
+      "src": "/resume.txt",
+      "dest": "/resume.txt",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "X-Robots-Tag": "all",
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
+    {
+      "src": "/resume.json",
+      "dest": "/resume.json",
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "Access-Control-Allow-Origin": "*",
+        "X-Robots-Tag": "all",
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
+    {
+      "src": "/llms.txt",
+      "dest": "/llms.txt",
+      "headers": {
+        "Content-Type": "text/markdown; charset=utf-8",
+        "X-Robots-Tag": "all",
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
+    {
       "src": "/docs/(.*)\\.pdf",
       "dest": "/docs/$1.pdf",
       "headers": {

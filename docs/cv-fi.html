@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<title>Renata Baldissara-Kunnela — CV (FI)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f172a;
+    --ink-soft: #334155;
+    --ink-muted: #64748b;
+    --accent: #1d4ed8;
+    --accent-soft: #2563eb;
+    --accent-bg: #eff6ff;
+    --rule: #e2e8f0;
+    --rule-strong: #cbd5e1;
+    --green: #15803d;
+    --hl-bg: #f8fafc;
+  }
+  @page {
+    size: A4;
+    margin: 12mm 13mm;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: var(--ink);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.42;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+  .wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 1mm 0 2mm 0;
+  }
+
+  /* HEADER */
+  header.top {
+    padding: 0 0 6pt 0;
+    margin-bottom: 8pt;
+    border-bottom: 2.5pt solid var(--accent);
+  }
+  header.top h1 {
+    font-size: 22pt;
+    font-weight: 800;
+    margin: 0 0 1pt 0;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  header.top .role {
+    font-size: 11pt;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 3pt 0;
+  }
+  header.top .status {
+    display: inline-block;
+    font-size: 8.5pt;
+    color: var(--green);
+    font-weight: 600;
+  }
+  header.top .status::before {
+    content: "● ";
+    color: var(--green);
+  }
+
+  .contact-line {
+    margin: 6pt 0 0 0;
+    font-size: 9pt;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .contact-line span { white-space: nowrap; }
+  .contact-line .sep {
+    color: var(--rule-strong);
+    margin: 0 5pt;
+  }
+
+  /* SECTION HEADERS */
+  h2 {
+    font-size: 9.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1.2pt solid var(--accent);
+    padding: 0 0 1.5pt 0;
+    margin: 7pt 0 3pt 0;
+    page-break-after: avoid;
+  }
+
+  p { margin: 0 0 3pt 0; }
+
+  ul { margin: 0 0 4pt 14pt; padding: 0; }
+  li { margin: 0 0 1.5pt 0; page-break-inside: avoid; }
+  li::marker { color: var(--accent); }
+
+  strong { color: var(--ink); font-weight: 600; }
+
+  /* KEY ACHIEVEMENTS */
+  .achievements-box {
+    background: var(--hl-bg);
+    border-left: 2.5pt solid var(--accent);
+    padding: 3pt 8pt 3pt 10pt;
+    margin: 2pt 0 3pt 0;
+    border-radius: 0 3pt 3pt 0;
+  }
+  .achievements-box ul { margin: 0 0 0 14pt; }
+  .achievements-box li:last-child { margin-bottom: 0; }
+
+  /* ROLE BLOCKS */
+  .role-block {
+    margin-bottom: 6pt;
+    padding-left: 8pt;
+    border-left: 2pt solid var(--rule);
+    page-break-inside: avoid;
+  }
+  .role-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12pt;
+    margin-bottom: 2pt;
+  }
+  .role-title {
+    font-weight: 700;
+    font-size: 10.5pt;
+    color: var(--ink);
+  }
+  .role-company {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .role-dates {
+    font-size: 9pt;
+    color: var(--ink-muted);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+  }
+
+  /* SKILLS */
+  .skill-row { margin-bottom: 3pt; line-height: 1.5; }
+  .skill-label { font-weight: 700; color: var(--ink); }
+
+  .ats-line {
+    font-size: 8.3pt;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    background: var(--accent-bg);
+    border-left: 2.5pt solid var(--accent);
+    padding: 4pt 7pt;
+    margin: 2pt 0 4pt 0;
+    page-break-inside: avoid;
+    border-radius: 0 3pt 3pt 0;
+  }
+  .ats-line strong { color: var(--accent); }
+
+  /* FOCUS / PROJECTS */
+  .two-col {
+    display: flex;
+    gap: 16pt;
+    page-break-inside: avoid;
+  }
+  .two-col > div { flex: 1; }
+  .two-col p { margin-bottom: 4pt; }
+
+  .project-item { margin-bottom: 4pt; }
+  .project-item .proj-name {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* EDU / CERTS / LANG */
+  .edu-list, .cert-list {
+    margin: 0 0 0 14pt;
+    padding: 0;
+    list-style: disc;
+  }
+  .edu-list li, .cert-list li {
+    margin: 0 0 1pt 0;
+    padding-left: 2pt;
+  }
+  .edu-list li::marker, .cert-list li::marker {
+    color: var(--accent);
+  }
+
+  .lang-line {
+    background: var(--hl-bg);
+    border-left: 2.5pt solid var(--accent);
+    padding: 4pt 7pt;
+    border-radius: 0 3pt 3pt 0;
+    font-size: 9.5pt;
+  }
+  .lang-line strong { color: var(--accent); }
+
+  @media print {
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <h1>Renata Baldissara-Kunnela</h1>
+    <p class="role">AI Developer — LLM- &amp; agenttiratkaisut</p>
+    <span class="status">Avoinna uusille mahdollisuuksille</span>
+    <p class="contact-line">
+      <span>renatbk.linkedin@gmail.com</span><span class="sep">|</span>
+      <span>+358 40 182 9008</span><span class="sep">|</span>
+      <span>linkedin.com/in/renata-kunnela-4002a726a</span><span class="sep">|</span>
+      <span>github.com/RBKunnela</span><span class="sep">|</span>
+      <span>renata-resume.vercel.app</span><span class="sep">|</span>
+      <span>Viitasaari, Suomi</span>
+    </p>
+  </header>
+
+  <section>
+    <h2>Profiili</h2>
+    <p>AI Developer ja AI Quality Engineering -osaaja, jolla on yli 15 vuoden tausta enterprise-järjestelmissä (pankki-, vakuutus- ja integraatioympäristöt). Rakennan tuotantotason LLM- ja agenttiratkaisuja liiketoimintaprosesseihin (structured prompting, RAG, fine-tuning, tool-orkestrointi) sekä toteutan luotettavuuden varmistavat mekanismit: guardrails, fallback-logiikka ja automaattinen evaluointi (LLM-as-judge + sääntöpohjaiset tarkistukset) regressiotestauksen ja jatkuvan parantamisen tueksi.</p>
+  </section>
+
+  <section>
+    <h2>Vahvuudet</h2>
+    <ul>
+      <li><strong>Päästä päähän -vastuu AI-kehityksestä.</strong> Prompt-suunnittelusta ja RAG-ankkuroinnista guardraileihin, evaluointiin ja tuotantoluotettavuuteen — katan koko LLM-elinkaaren, en pelkkää prototyyppikerrosta.</li>
+      <li><strong>Enterprise-kuri AI-työssä.</strong> Yli 15 vuoden tausta pankki- ja vakuutusympäristöissä auditointi- ja vaatimustenmukaisuusrajoitteiden alla tarkoittaa, että luotettavuus ja jäljitettävyys ovat lähtötaso, eivät lisä.</li>
+      <li><strong>Cross-functional-viestintä.</strong> Monikielinen (portugali, suomi, englanti, espanja) ja kokenut sillanrakentaja kehittäjien, arkkitehtien ja liiketoiminnan välillä useamman järjestelmän enterprise-prosesseissa.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Tärkeimmät saavutukset</h2>
+    <div class="achievements-box">
+      <ul>
+        <li><strong>4 AI-tuotetta tuotannossa</strong> — FriendlyAI-avustimet, Lumanela.fi (100–500 keskustelua/kk), Jurevon multi-agentti-orkestrointi sekä sisäiset evaluointijärjestelmät.</li>
+        <li><strong>3 julkaistua avoimen lähdekoodin kehystä</strong> — ALMA-memory (PyPI + npm), AGtestari ja VERITAS-framework — kaikki saatavilla GitHubissa.</li>
+        <li><strong>Konferenssipuhuja</strong> — Testaus ja AI 2024 (Suomen testauksen ja tekoälyn konferenssi).</li>
+        <li><strong>Yli 15 vuotta säännellyissä enterprise-ympäristöissä</strong> — pankkitason järjestelmät Samlinkissä ja vakuutusintegraatiot TietoEvry/Fenniassa.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Työkokemus</h2>
+
+    <div class="role-block">
+      <div class="role-head">
+        <span><span class="role-title">AI Developer &amp; Quality Engineering</span> — <span class="role-company">FriendlyAI</span></span>
+        <span class="role-dates">02/2025 — Nykyhetki</span>
+      </div>
+      <ul>
+        <li>Rakensin tuotantotason AI-avustimet ja automaatioratkaisut asiakaspalveluun ja liidien generointiin.</li>
+        <li>Toteutin seurannan ja laatumetriikat LLM-pohjaisille toiminnoille tehden avustimen käyttäytymisestä mitattavaa.</li>
+        <li>Suunnittelin evaluointisilmukat (LLM-as-judge + sääntöpohjaiset tarkistukset) jatkuvan parantamisen ajamiseksi.</li>
+        <li>Integroin LLM-käyttäytymisen olemassa oleviin liiketoimintaprosesseihin keskittyen luotettavuuteen, fallback-polkuihin ja turvalliseen eskalointiin.</li>
+      </ul>
+    </div>
+
+    <div class="role-block">
+      <div class="role-head">
+        <span><span class="role-title">API Tester &amp; Quality Engineering</span> — <span class="role-company">TietoEvry / Fennia</span></span>
+        <span class="role-dates">09/2023 — 02/2025</span>
+      </div>
+      <ul>
+        <li>Vastasin RAML/MuleSoft-rajapintojen API-laadusta monimutkaisissa vakuutusintegraatioissa.</li>
+        <li>Hallinnoin testitapauksia ja release-evidenssiä TestRailissa ja Jirassa; rakensin vientikelpoiset evidenssipaketit release-valmiuden katselmointeja varten.</li>
+        <li>Rakensin Postman-testiautomaatiopaketit, jotka kattoivat sopimus-, integraatio- ja regressiotestauksen.</li>
+        <li>Tein yhteistyötä kehittäjien ja arkkitehtien kanssa integraatiovirheiden ratkaisemiseksi useamman järjestelmän vakuutusprosesseissa.</li>
+      </ul>
+    </div>
+
+    <div class="role-block">
+      <div class="role-head">
+        <span><span class="role-title">Senior Test Automation Engineer</span> — <span class="role-company">Samlink Oyj</span></span>
+        <span class="role-dates">01/2016 — 03/2023</span>
+      </div>
+      <ul>
+        <li>Kehitin skaalautuvan testiautomaation pankkitason järjestelmiin Robot Frameworkilla ja Pythonilla.</li>
+        <li>Loin QA-käytännöt integraatiokeskeisiin palveluketjuihin tiukoissa luotettavuus- ja auditointivaatimuksissa.</li>
+        <li>Suunnittelin regressio- ja release-valmiusputket säänneltyjen ympäristöjen tuotantojulkaisuille.</li>
+        <li>Mentoroin testaajia ja tuin vaatimusten selkeyttämistä kehittäjien ja liiketoiminta-analyytikoiden kanssa.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Taidot</h2>
+
+    <div class="ats-line">
+      <strong>Avainsanat:</strong> Python, FastAPI, Pydantic, PostgreSQL, Redis, REST API, OAuth2, Docker, CI/CD, OpenAI, Anthropic Claude, Azure OpenAI, Google Gemini, Hugging Face, LangChain, LlamaIndex, RAG, Fine-tuning, Prompt Engineering, Guardrails, LLM-as-judge, Multi-agentti orkestrointi, MCP, Robot Framework, Postman, TestRail, Jira, Confluence, RAML, MuleSoft, ISTQB, Testiautomaatio, API-testaus, Quality Engineering, Pankkijärjestelmät, Vakuutusjärjestelmät, Integraatiotestaus, Release-valmius.
+    </div>
+
+    <div class="skill-row"><span class="skill-label">AI &amp; LLM:</span> OpenAI · Anthropic Claude · Azure OpenAI · Google Gemini · LangChain · LlamaIndex · RAG · Fine-tuning · Guardrails · LLM-as-judge · Prompt Engineering · MCP</div>
+    <div class="skill-row"><span class="skill-label">Engineering:</span> Python · FastAPI · Pydantic · PostgreSQL · Redis · REST API · OAuth2 · Docker · CI/CD</div>
+    <div class="skill-row"><span class="skill-label">QA &amp; Testaus:</span> Robot Framework · Postman · TestRail · Jira · Confluence · RAML/MuleSoft · ISTQB</div>
+  </section>
+
+  <section>
+    <h2>Painopistealueet</h2>
+    <div class="two-col">
+      <div>
+        <p><strong>LLM &amp; NLP.</strong> Structured prompting, RAG-grounding, fine-tuning, hallusinaatioiden vähentäminen, epävarmuuden hallinta.</p>
+        <p><strong>AI-agentit.</strong> Multi-agentti-orkestrointi, protokollat, kontrolloitu työkalujen käyttö ja käyttöoikeudet.</p>
+      </div>
+      <div>
+        <p><strong>AI-luotettavuus.</strong> Guardrails, prompt injection -torjunta, fallback-strategiat, turvallinen eskalointi.</p>
+        <p><strong>Evaluointi &amp; testaus.</strong> LLM-as-judge + sääntötarkistukset, laadun metriikat, regressiotestaus, jatkuva parantaminen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Valitut projektit</h2>
+    <p class="project-item"><span class="proj-name">ALMA-memory</span> — Avoin lähdekoodi · PyPI · npm. Pysyvä muisti AI-agenteille. Vaihtoehto Mem0:lle: rajattu oppiminen, antipatterns, multi-agent-jakaminen ja MCP-integraatio. <em>Teknologiat:</em> Python, SQLite, MCP, FastAPI, npm.</p>
+    <p class="project-item"><span class="proj-name">AGtestari</span> — Avoin lähdekoodi · SaaS. AI-pohjainen yhtenäinen testausalusta, joka tuo autonomiset QA-agentit asiakkaan Azure-ympäristöön. Yhdistää frontend-, backend-, mobiili-, saavutettavuus- ja suorituskykytestauksen 12-vaiheisella enterprise-työnkululla. <em>Teknologiat:</em> FastAPI, React, Azure, AI-agentit, Jira.</p>
+    <p class="project-item"><span class="proj-name">VERITAS-framework</span> — Avoin lähdekoodi. Evaluointikehys AI-järjestelmille: LLM-as-judge-ominaisuudet, laatumetriikat ja regressiotestauksen tuki. <em>Teknologiat:</em> Python, LLM-as-judge, Evaluointi.</p>
+    <p class="project-item"><span class="proj-name">Jurevo</span> — Luottamuksellinen · AI-arkkitehti. Multi-agentti-orkestrointi kontrolloiduilla työkaluilla ja chat-evaluointikehyksellä (LLM-as-judge + rule checks). Modulaarinen backend ja suorituskykyinen yrityshaku. <em>Teknologiat:</em> FastAPI, PostgreSQL, Redis, Multi-agent.</p>
+    <p class="project-item"><span class="proj-name">Lumanela.fi</span> — Tuotanto. LLM + RAG + fine-tuning. Strukturoitu prompt-logiikka ja edge-funktioilla orkestroitu työnkulku tuotannossa. <em>Teknologiat:</em> LLM, RAG, Fine-tuning, Edge Functions.</p>
+  </section>
+
+  <section>
+    <h2>Koulutus</h2>
+    <ul class="edu-list">
+      <li><strong>Tietojenkäsittelyn Tradenomi (AMK)</strong> — Jyväskylän ammattikorkeakoulu (JAMK) · 2011 — 2016</li>
+      <li><strong>MBA, International Business and Law</strong> — Åbo Akademi · 2004 — 2006</li>
+      <li><strong>BBA, Management</strong> — Faculdade Cândido Mendes, Brasilia · 1985 — 1990</li>
+      <li><strong>Vierasluennoitsija</strong> — Jyväskylän ammattikorkeakoulu (JAMK) · 2007 — 2016</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Sertifioinnit</h2>
+    <ul class="cert-list">
+      <li>ISTQB Foundation — Certified Tester · 01/2014</li>
+      <li>ISTQB Foundation — Agile Tester · 04/2015</li>
+      <li>Advanced Robot Framework · 11/2015</li>
+      <li>Multimodal Prompting with Google Gemini · 05/2024</li>
+      <li>Prompt Engineering Basics — Azure OpenAI · 05/2024</li>
+      <li>Puhuja — Testaus ja AI · 2024</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Kielet</h2>
+    <p class="lang-line"><strong>Portugali</strong> — Äidinkieli &nbsp;·&nbsp; <strong>Englanti</strong> — Erinomainen &nbsp;·&nbsp; <strong>Suomi</strong> — Sujuva (työskentelykieli) &nbsp;·&nbsp; <strong>Espanja</strong> — Sujuva</p>
+  </section>
+
+</div>
+</body>
+</html>

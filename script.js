@@ -244,6 +244,7 @@ function initSmoothScroll() {
 }
 
 // ===== DOWNLOAD CV (language-aware) =====
+// One PDF per language — single-column, polished for humans AND parseable by AI/ATS.
 function exportToPDF() {
     const path = currentLang === 'fi'
         ? 'docs/cv-fi-pdf/Renata-Baldissara-Kunnela-CV-FI.pdf'

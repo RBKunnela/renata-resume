@@ -4,6 +4,7 @@ FROM nginx:alpine
 # Copy static files
 COPY index.html styles.css script.js robots.txt sitemap.xml /app/
 COPY health.html /app/
+COPY resume.txt resume.json llms.txt /app/
 COPY docs /app/docs
 
 # Create proper nginx config
@@ -17,6 +18,28 @@ RUN echo 'server { \
         access_log off; \
         add_header Content-Type "text/html; charset=utf-8"; \
         return 200 "OK"; \
+    } \
+    \
+    location = /resume.txt { \
+        add_header Content-Type "text/plain; charset=utf-8"; \
+        add_header X-Robots-Tag "all"; \
+        add_header Cache-Control "public, max-age=3600"; \
+        try_files $uri =404; \
+    } \
+    \
+    location = /resume.json { \
+        add_header Content-Type "application/json; charset=utf-8"; \
+        add_header Access-Control-Allow-Origin "*"; \
+        add_header X-Robots-Tag "all"; \
+        add_header Cache-Control "public, max-age=3600"; \
+        try_files $uri =404; \
+    } \
+    \
+    location = /llms.txt { \
+        add_header Content-Type "text/markdown; charset=utf-8"; \
+        add_header X-Robots-Tag "all"; \
+        add_header Cache-Control "public, max-age=3600"; \
+        try_files $uri =404; \
     } \
     \
     location ~* \.pdf$ { \

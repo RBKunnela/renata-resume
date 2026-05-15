@@ -1,0 +1,246 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "meta": {
+    "version": "v1.0.0",
+    "canonical": "https://renata-resume.vercel.app/resume.json",
+    "lastModified": "2026-05-15",
+    "language": "en"
+  },
+  "basics": {
+    "name": "Renata Baldissara-Kunnela",
+    "label": "AI Developer — LLM & Agent Systems",
+    "email": "renatbk.linkedin@gmail.com",
+    "phone": "+358 40 182 9008",
+    "url": "https://renata-resume.vercel.app/",
+    "summary": "AI Developer and AI Quality Engineering specialist with 15+ years in enterprise systems (banking, insurance, integration-heavy environments). Builds production LLM and agent solutions embedded into business workflows using structured prompting, RAG grounding, fine-tuning, and tool orchestration. Designs reliability systems for modern AI: guardrails, fallback behavior, and automated evaluation (LLM-as-judge plus rule-based checks).",
+    "location": {
+      "city": "Viitasaari",
+      "countryCode": "FI",
+      "region": "Central Finland"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "renata-kunnela-4002a726a",
+        "url": "https://www.linkedin.com/in/renata-kunnela-4002a726a/"
+      },
+      {
+        "network": "GitHub",
+        "username": "RBKunnela",
+        "url": "https://github.com/RBKunnela"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "FriendlyAI",
+      "position": "AI Developer & Quality Engineering",
+      "startDate": "2025-02",
+      "endDate": null,
+      "summary": "Production LLM assistants and automation for customer support and lead generation with continuous-improvement evaluation loops.",
+      "highlights": [
+        "Built production AI assistants and automation flows for customer support and lead generation.",
+        "Implemented tracking and quality metrics across LLM-driven flows to make assistant behavior measurable.",
+        "Designed evaluation loops (LLM-as-judge plus rule-based checks) driving continuous improvement of prompts and responses.",
+        "Integrated LLM behavior into existing business workflows with focus on reliability, fallback paths, and safe escalation."
+      ]
+    },
+    {
+      "name": "TietoEvry / Fennia",
+      "position": "API Tester & Quality Engineering",
+      "startDate": "2023-09",
+      "endDate": "2025-02",
+      "summary": "End-to-end API quality for RAML/MuleSoft integrations in a complex insurance environment.",
+      "highlights": [
+        "Owned end-to-end API quality for RAML/MuleSoft APIs across complex insurance integrations.",
+        "Managed test cases and release evidence in TestRail and Jira; built exportable evidence packs for release-readiness reviews.",
+        "Built Postman test automation suites covering contract, integration, and regression scenarios.",
+        "Collaborated with developers and architects to resolve integration defects across multi-system insurance flows."
+      ]
+    },
+    {
+      "name": "Samlink Oyj",
+      "position": "Senior Test Automation Engineer",
+      "startDate": "2016-01",
+      "endDate": "2023-03",
+      "summary": "Scalable test automation and QA practices for banking-grade systems under strict reliability and audit requirements.",
+      "highlights": [
+        "Developed scalable test automation for banking-grade systems using Robot Framework and Python.",
+        "Established QA practices for integration-heavy service chains under strict reliability and audit requirements.",
+        "Designed regression and release-readiness pipelines for production deployments in regulated environments.",
+        "Mentored testers and supported requirement clarification with developers and business analysts."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "JAMK University of Applied Sciences",
+      "url": "https://www.jamk.fi/",
+      "area": "Computer Science / Business IT",
+      "studyType": "BSc",
+      "startDate": "2011",
+      "endDate": "2016"
+    },
+    {
+      "institution": "Åbo Akademi",
+      "url": "https://www.abo.fi/",
+      "area": "International Business and Law",
+      "studyType": "MBA",
+      "startDate": "2004",
+      "endDate": "2006"
+    },
+    {
+      "institution": "Faculdade Cândido Mendes, Brazil",
+      "area": "Management",
+      "studyType": "BBA",
+      "startDate": "1985",
+      "endDate": "1990"
+    },
+    {
+      "institution": "JAMK University of Applied Sciences",
+      "area": "Guest Lecturer",
+      "studyType": "Teaching",
+      "startDate": "2007",
+      "endDate": "2016"
+    }
+  ],
+  "certificates": [
+    { "name": "ISTQB Foundation — Certified Tester", "date": "2014-01", "issuer": "ISTQB" },
+    { "name": "ISTQB Foundation — Agile Tester", "date": "2015-04", "issuer": "ISTQB" },
+    { "name": "Advanced Robot Framework", "date": "2015-11" },
+    { "name": "Multimodal Prompting with Google Gemini", "date": "2024-05", "issuer": "Google" },
+    { "name": "Prompt Engineering Basics — Azure OpenAI", "date": "2024-05", "issuer": "Microsoft" },
+    { "name": "Speaker — Testaus ja AI", "date": "2024" }
+  ],
+  "skills": [
+    {
+      "name": "AI & LLM",
+      "level": "Expert",
+      "keywords": [
+        "OpenAI", "Anthropic Claude", "Azure OpenAI", "Google Gemini",
+        "LangChain", "LlamaIndex", "RAG", "Fine-tuning", "Guardrails",
+        "LLM-as-judge", "Prompt Engineering", "MCP",
+        "Multi-agent orchestration", "Structured prompting",
+        "Hallucination reduction", "Prompt injection awareness"
+      ]
+    },
+    {
+      "name": "Engineering",
+      "level": "Advanced",
+      "keywords": [
+        "Python", "FastAPI", "Pydantic", "PostgreSQL", "Redis",
+        "REST APIs", "OAuth2", "Docker", "CI/CD", "Edge Functions"
+      ]
+    },
+    {
+      "name": "QA & Testing",
+      "level": "Expert",
+      "keywords": [
+        "Robot Framework", "Postman", "TestRail", "Jira", "Confluence",
+        "RAML", "MuleSoft", "ISTQB", "Test Automation", "API Testing",
+        "Regression testing", "Release readiness", "Integration testing"
+      ]
+    },
+    {
+      "name": "Domains",
+      "level": "Senior",
+      "keywords": [
+        "Banking systems", "Insurance systems", "Enterprise integration",
+        "Audit & compliance environments"
+      ]
+    }
+  ],
+  "languages": [
+    { "language": "Portuguese", "fluency": "Native speaker" },
+    { "language": "English", "fluency": "Excellent" },
+    { "language": "Finnish", "fluency": "Fluent (working language)" },
+    { "language": "Spanish", "fluency": "Fluent" }
+  ],
+  "awards": [
+    {
+      "title": "4 AI products shipped to production",
+      "summary": "FriendlyAI assistants, Lumanela.fi (100–500 conversations/month), Jurevo multi-agent orchestration, plus internal evaluation systems."
+    },
+    {
+      "title": "3 open-source frameworks published",
+      "summary": "ALMA-memory (PyPI + npm), AGtestari, and VERITAS-framework — all available on GitHub.",
+      "awarder": "GitHub / PyPI / npm"
+    },
+    {
+      "title": "Conference speaker — Testaus ja AI 2024",
+      "date": "2024",
+      "awarder": "Testaus ja AI",
+      "summary": "Finland's testing and AI conference."
+    },
+    {
+      "title": "15+ years across regulated enterprise environments",
+      "summary": "Banking-grade systems at Samlink and insurance integrations at TietoEvry/Fennia under audit and compliance constraints."
+    }
+  ],
+  "strengths": [
+    {
+      "title": "End-to-end AI ownership",
+      "description": "From prompt design and RAG grounding through guardrails, evaluation, and production reliability — full LLM lifecycle, not just the prototype layer."
+    },
+    {
+      "title": "Enterprise discipline applied to AI",
+      "description": "15+ years in banking and insurance environments under audit and compliance constraints; reliability and traceability as baseline, not bonus."
+    },
+    {
+      "title": "Cross-functional communication",
+      "description": "Multilingual (Portuguese, Finnish, English, Spanish) and experienced bridging developers, architects, and business stakeholders across multi-system enterprise flows."
+    }
+  ],
+  "projects": [
+    {
+      "name": "ALMA-memory",
+      "description": "Persistent memory layer for AI agents. Alternative to Mem0 with scoped learning, anti-patterns, multi-agent sharing, and MCP integration.",
+      "highlights": [
+        "Published on PyPI and npm",
+        "Scoped learning and anti-patterns",
+        "Multi-agent sharing",
+        "MCP integration"
+      ],
+      "keywords": ["Python", "SQLite", "MCP", "FastAPI", "npm"],
+      "startDate": "2025",
+      "url": "https://alma-memory.pages.dev/",
+      "type": "Open Source",
+      "roles": ["Creator", "Maintainer"],
+      "entity": "Personal",
+      "repository": "https://github.com/RBKunnela/ALMA-memory"
+    },
+    {
+      "name": "AGtestari",
+      "description": "AI-powered unified testing platform deploying autonomous QA agents into customer Azure environments. Consolidates frontend, backend, mobile, accessibility, and performance testing through a 12-phase enterprise workflow.",
+      "keywords": ["FastAPI", "React", "Azure", "AI Agents", "Jira"],
+      "startDate": "2025",
+      "url": "https://agentictestari-landing.pages.dev/",
+      "type": "Open Source / SaaS",
+      "roles": ["Creator"],
+      "entity": "Personal",
+      "repository": "https://github.com/RBKunnela/AGtestari"
+    },
+    {
+      "name": "VERITAS-framework",
+      "description": "Evaluation framework for AI systems with LLM-as-judge capabilities, quality metrics, and regression testing support.",
+      "keywords": ["Python", "LLM-as-judge", "Evaluation"],
+      "type": "Open Source",
+      "roles": ["Creator"],
+      "entity": "Personal",
+      "repository": "https://github.com/RBKunnela/veritas-framework"
+    },
+    {
+      "name": "Jurevo",
+      "description": "Multi-agent orchestration with controlled tools and a chat evaluation harness (LLM-as-judge plus rule checks). Modular backend and high-performance enterprise search.",
+      "keywords": ["FastAPI", "PostgreSQL", "Redis", "Multi-agent"],
+      "type": "Confidential",
+      "roles": ["AI Architect"]
+    },
+    {
+      "name": "Lumanela.fi",
+      "description": "LLM with RAG and fine-tuning. Structured prompt logic and edge-function orchestration in production.",
+      "keywords": ["LLM", "RAG", "Fine-tuning", "Edge Functions"],
+      "type": "Production"
+    }
+  ]
+}

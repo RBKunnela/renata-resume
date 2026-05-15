@@ -1,0 +1,196 @@
+Renata Baldissara-Kunnela
+AI Developer - LLM & Agent Systems
+Available for opportunities
+
+================================================================
+CONTACT
+================================================================
+Email:     renatbk.linkedin@gmail.com
+Phone:     +358 40 182 9008
+LinkedIn:  https://www.linkedin.com/in/renata-kunnela-4002a726a/
+GitHub:    https://github.com/RBKunnela
+Portfolio: https://renata-resume.vercel.app/
+Location:  Viitasaari, Finland
+
+================================================================
+SUMMARY
+================================================================
+AI Developer and AI Quality Engineering specialist with 15+ years
+in enterprise systems (banking, insurance, integration-heavy
+environments). I build production LLM and agent solutions embedded
+into business workflows using structured prompting, RAG grounding,
+fine-tuning, and tool orchestration. I also design reliability
+systems for modern AI: guardrails, fallback behavior, and automated
+evaluation (LLM-as-judge plus rule-based checks) used for
+regression testing and continuous improvement.
+
+================================================================
+STRENGTHS
+================================================================
+- End-to-end AI ownership. From prompt design and RAG grounding
+  through guardrails, evaluation, and production reliability -
+  full LLM lifecycle, not just the prototype layer.
+- Enterprise discipline applied to AI. 15+ years in banking and
+  insurance environments under audit and compliance constraints;
+  reliability and traceability as baseline, not bonus.
+- Cross-functional communication. Multilingual (Portuguese,
+  Finnish, English, Spanish) and experienced bridging developers,
+  architects, and business stakeholders across multi-system
+  enterprise flows.
+
+================================================================
+KEY ACHIEVEMENTS
+================================================================
+- 4 AI products in production - including FriendlyAI assistants,
+  Lumanela.fi (100-500 conversations/month), and Jurevo multi-agent
+  orchestration.
+- 3 open-source frameworks published - ALMA-memory (PyPI + npm),
+  AGtestari, and VERITAS-framework - all available on GitHub.
+- Conference speaker - Testaus ja AI 2024 (Finland's testing and
+  AI conference).
+- 15+ years across regulated enterprise environments - banking-
+  grade systems at Samlink and insurance integrations at
+  TietoEvry/Fennia.
+
+================================================================
+EXPERIENCE
+================================================================
+
+FriendlyAI - AI Developer & Quality Engineering
+02/2025 - Present
+- Built production AI assistants and automation flows for customer
+  support and lead generation.
+- Implemented tracking and quality metrics across LLM-driven flows
+  to make assistant behavior measurable.
+- Designed evaluation loops (LLM-as-judge plus rule-based checks)
+  driving continuous improvement of prompts and responses.
+- Integrated LLM behavior into existing business workflows with
+  focus on reliability, fallback paths, and safe escalation.
+
+TietoEvry / Fennia - API Tester & Quality Engineering
+09/2023 - 02/2025
+- Owned end-to-end API quality for RAML/MuleSoft APIs across
+  complex insurance integrations.
+- Managed test cases and release evidence in TestRail and Jira;
+  built exportable evidence packs for release-readiness reviews.
+- Built Postman test automation suites covering contract,
+  integration, and regression scenarios.
+- Collaborated with developers and architects to resolve
+  integration defects across multi-system insurance flows.
+
+Samlink Oyj - Senior Test Automation Engineer
+01/2016 - 03/2023
+- Developed scalable test automation for banking-grade systems
+  using Robot Framework and Python.
+- Established QA practices for integration-heavy service chains
+  under strict reliability and audit requirements.
+- Designed regression and release-readiness pipelines for
+  production deployments in regulated environments.
+- Mentored testers and supported requirement clarification with
+  developers and business analysts.
+
+================================================================
+SKILLS
+================================================================
+
+AI & LLM:
+  OpenAI, Anthropic Claude, Azure OpenAI, Google Gemini,
+  LangChain, LlamaIndex, RAG, Fine-tuning, Guardrails,
+  LLM-as-judge, Prompt Engineering, MCP
+
+Engineering:
+  Python, FastAPI, Pydantic, PostgreSQL, Redis, REST APIs,
+  OAuth2, Docker, CI/CD
+
+QA & Testing:
+  Robot Framework, Postman, TestRail, Jira, Confluence,
+  RAML/MuleSoft, ISTQB
+
+Focus Areas:
+  LLM & NLP (structured prompting, RAG grounding, fine-tuning,
+  hallucination reduction, uncertainty handling); AI Agents
+  (multi-agent orchestration, protocol-driven behavior,
+  controlled tool access and permissions); AI Reliability
+  (guardrails, prompt injection awareness, fallback strategies,
+  safe escalation paths); Evaluation & Testing (LLM-as-judge plus
+  rule checks, quality metrics, regression testing).
+
+================================================================
+LANGUAGES
+================================================================
+Portuguese - Native
+English    - Excellent
+Finnish    - Fluent (working language)
+Spanish    - Fluent
+
+================================================================
+PROJECTS
+================================================================
+
+ALMA-memory (Open Source, PyPI, npm)
+  Persistent memory layer for AI agents. Alternative to Mem0
+  with scoped learning, anti-patterns, multi-agent sharing,
+  and MCP integration.
+  Stack: Python, SQLite, MCP, FastAPI, npm
+  Repository: https://github.com/RBKunnela/ALMA-memory
+
+AGtestari (Open Source, SaaS)
+  AI-powered unified testing platform deploying autonomous QA
+  agents into customer Azure environments. Consolidates frontend,
+  backend, mobile, accessibility, and performance testing through
+  a 12-phase enterprise workflow.
+  Stack: FastAPI, React, Azure, AI Agents, Jira
+  Repository: https://github.com/RBKunnela/AGtestari
+
+VERITAS-framework (Open Source)
+  Evaluation framework for AI systems with LLM-as-judge
+  capabilities, quality metrics, and regression testing support.
+  Stack: Python, LLM-as-judge, Evaluation
+  Repository: https://github.com/RBKunnela/veritas-framework
+
+Jurevo (Confidential, AI Architect)
+  Multi-agent orchestration with controlled tools and a chat
+  evaluation harness (LLM-as-judge plus rule checks). Modular
+  backend and high-performance enterprise search.
+  Stack: FastAPI, PostgreSQL, Redis, Multi-agent
+
+Lumanela.fi (Production)
+  LLM with RAG and fine-tuning. Structured prompt logic and
+  edge-function orchestration in production.
+  Stack: LLM, RAG, Fine-tuning, Edge Functions
+
+================================================================
+EDUCATION
+================================================================
+BSc in Computer Science / Business IT
+  JAMK University of Applied Sciences
+  2011 - 2016
+
+MBA, International Business and Law
+  Abo Akademi
+  2004 - 2006
+
+BBA, Management
+  Faculdade Candido Mendes, Brazil
+  1985 - 1990
+
+Guest Lecturer
+  JAMK University of Applied Sciences
+  2007 - 2016
+
+================================================================
+CERTIFICATIONS
+================================================================
+ISTQB Foundation - Certified Tester         01/2014
+ISTQB Foundation - Agile Tester             04/2015
+Advanced Robot Framework                    11/2015
+Multimodal Prompting with Google Gemini     05/2024
+Prompt Engineering Basics - Azure OpenAI    05/2024
+Speaker - Testaus ja AI                     2024
+
+================================================================
+END OF RESUME
+================================================================
+Last updated: 2026-05-15
+Canonical URL: https://renata-resume.vercel.app/resume.txt
+JSON version:  https://renata-resume.vercel.app/resume.json

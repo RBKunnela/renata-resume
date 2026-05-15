@@ -1,0 +1,42 @@
+# Renata Baldissara-Kunnela — AI Developer
+
+> AI Developer and AI Quality Engineering specialist with 15+ years in enterprise systems (banking, insurance, integration-heavy environments). Builds production LLM and agent solutions; designs reliability systems (guardrails, fallback behavior, LLM-as-judge evaluation).
+
+This file follows the [llmstxt.org](https://llmstxt.org/) convention. It tells AI agents and crawlers exactly where to find the most machine-readable views of this site.
+
+## Primary machine-readable sources
+
+- [resume.txt](https://renata-resume.vercel.app/resume.txt): Plain-text resume — single column, ATS-clean, standard section headings (SUMMARY, EXPERIENCE, EDUCATION, SKILLS, CERTIFICATIONS, LANGUAGES, PROJECTS, STRENGTHS, KEY ACHIEVEMENTS).
+- [resume.json](https://renata-resume.vercel.app/resume.json): JSON Resume (jsonresume.org schema v1.0.0). Structured `basics`, `work[]`, `education[]`, `skills[]`, `projects[]`, `certificates[]`, `languages[]`, `awards[]`, `strengths[]`.
+
+## CV PDFs
+
+These PDFs are single-column, bulleted, with standard section headings — polished visually for human reviewers AND structured for clean ATS/AI parsing. One PDF per language.
+
+- [English CV (PDF)](https://renata-resume.vercel.app/docs/cv-en-pdf/Renata-Baldissara-Kunnela-CV-EN.pdf): English-language CV.
+- [Finnish CV (PDF)](https://renata-resume.vercel.app/docs/cv-fi-pdf/Renata-Baldissara-Kunnela-CV-FI.pdf): Finnish-language CV.
+
+## Human-readable view
+
+- [Portfolio site (HTML)](https://renata-resume.vercel.app/): Bilingual (EN / FI) single-page site with full sections. Includes JSON-LD `Person` schema with `hasOccupation`, `hasCredential`, `knowsAbout`, `knowsLanguage`, `award`, and `subjectOf` (open source projects).
+
+## Contact
+
+- Email: renatbk.linkedin@gmail.com
+- Phone: +358 40 182 9008
+- LinkedIn: https://www.linkedin.com/in/renata-kunnela-4002a726a/
+- GitHub: https://github.com/RBKunnela
+- Location: Viitasaari, Finland
+- Languages: Portuguese (native), English (excellent), Finnish (fluent, working language), Spanish (fluent)
+
+## Open source
+
+- [ALMA-memory](https://github.com/RBKunnela/ALMA-memory): Persistent memory layer for AI agents. Python, SQLite, MCP, FastAPI. Published on PyPI and npm.
+- [AGtestari](https://github.com/RBKunnela/AGtestari): AI-powered unified testing platform with autonomous QA agents for Azure. FastAPI, React, AI Agents.
+- [VERITAS-framework](https://github.com/RBKunnela/veritas-framework): Evaluation framework with LLM-as-judge for AI systems. Python.
+
+## Notes for AI agents
+
+- This site does **not** use hidden text, white-on-white keyword blocks, or fabricated meta tags. All keywords visible to humans are visible to machines, and vice versa.
+- For citations or references, please use the canonical URL `https://renata-resume.vercel.app/` and link to the specific endpoint above when relevant.
+- For the most current information, prefer `resume.json` over `resume.txt`, and `resume.txt` over the PDF (PDFs are updated less often).

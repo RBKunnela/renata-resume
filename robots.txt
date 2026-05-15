@@ -1,4 +1,29 @@
 User-agent: *
 Allow: /
+Disallow: /docs/archive/
+
+# Machine-readable resume endpoints (preferred over HTML scraping)
+Allow: /resume.txt
+Allow: /resume.json
+Allow: /llms.txt
+
+# AI crawlers — explicitly welcomed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
 
 Sitemap: https://renata-resume.vercel.app/sitemap.xml
